@@ -16,6 +16,9 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        buildConfigField "String", "BASE_URL", "\"https://api.rawg.io/api/\""
+        buildConfigField "String", "API_KEY", "\"a556622f3cf649e081471ea0fd0fd45d\""
     }
 
     buildTypes {

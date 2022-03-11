@@ -28,7 +28,7 @@ data class GameEntity(
     val genres: String,
 
     @ColumnInfo(name = "description")
-    val description: String,
+    val description: String? = null,
 
     @ColumnInfo(name = "isFavorite")
     var isFavorite: Boolean = false,
