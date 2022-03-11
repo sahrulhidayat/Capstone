@@ -1,0 +1,43 @@
+package com.sahrulhidayat.core.ui
+
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.sahrulhidayat.core.databinding.ItemListBinding
+import com.sahrulhidayat.core.domain.model.GameModel
+
+class GameAdapter : RecyclerView.Adapter<GameAdapter.GameViewHolder>() {
+
+    private val gameList = ArrayList<GameModel>()
+
+    fun setData(newGameList: List<GameModel>?) {
+        if (newGameList == null) return
+
+        gameList.clear()
+        gameList.addAll(newGameList)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameViewHolder {
+        val binding = ItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return GameViewHolder(binding)
+    }
+
+    override fun onBindViewHolder(holder: GameViewHolder, position: Int) {
+        holder.bind(gameList[position])
+    }
+
+    override fun getItemCount(): Int {
+        return gameList.size
+    }
+
+    inner class GameViewHolder(private val binding: ItemListBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(game: GameModel) {
+            val context = itemView.context
+            with(binding) {
+                txtName.text = game.name
+
+            }
+        }
+
+    }
+}
