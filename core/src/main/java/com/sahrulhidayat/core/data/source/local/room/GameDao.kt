@@ -18,7 +18,7 @@ interface GameDao {
     fun updateDataGame(game: GameEntity)
 
     @Query("SELECT * FROM game_entities WHERE isFavorite = 1")
-    fun getFavoriteGames(): Flow<List<GameEntity>>
+    fun getAllFavoriteGames(): Flow<List<GameEntity>>
 
     @Query("SELECT * FROM game_entities WHERE name like :name")
     fun getSearchResult(name: String): Flow<List<GameEntity>>
