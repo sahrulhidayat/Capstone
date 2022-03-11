@@ -17,7 +17,7 @@
             android:id="@+id/imgPoster"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="Game Poster"
+            android:contentDescription="@string/image_poster"
             tools:src="@tools:sample/backgrounds/scenic"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
