@@ -21,8 +21,8 @@ class LocalDataSource constructor(private val mGameDao: GameDao) {
         mGameDao.updateDataGame(game)
     }
 
-    fun getSearchGames(name: String): Flow<List<GameEntity>> {
-        return mGameDao.getSearchResult(name)
+    fun getSearchedGames(name: String): Flow<List<GameEntity>> {
+        return mGameDao.getSearchedGames(name)
     }
 
     suspend fun insertGame(game: List<GameEntity>) = mGameDao.insertDataGame(game)

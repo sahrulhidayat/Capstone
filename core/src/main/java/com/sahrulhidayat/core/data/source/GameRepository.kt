@@ -45,8 +45,8 @@ class GameRepository constructor(
         }
     }
 
-    override fun getSearchGame(name: String): Flow<List<GameModel>> {
-        return localDataSource.getSearchGames(name).map {
+    override fun getSearchedGames(name: String): Flow<List<GameModel>> {
+        return localDataSource.getSearchedGames(name).map {
             DataMapper.mapEntitiesToDomain(it)
         }
     }
