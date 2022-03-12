@@ -2,6 +2,9 @@ plugins {
     id 'com.android.dynamic-feature'
     id 'org.jetbrains.kotlin.android'
 }
+
+apply from: '../shared_dependencies.gradle'
+
 android {
     compileSdk 31
 
@@ -24,6 +27,8 @@ android {
 
 dependencies {
     implementation project(":app")
+    implementation project(":core")
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
