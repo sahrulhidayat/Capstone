@@ -1,14 +1,22 @@
 package com.sahrulhidayat.core.data.source.remote.network
 
 import com.sahrulhidayat.core.BuildConfig
-import com.sahrulhidayat.core.data.source.remote.response.ListGameResponse
+import com.sahrulhidayat.core.data.source.remote.response.GameDetailsResponse
+import com.sahrulhidayat.core.data.source.remote.response.GameListResponse
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiService {
     @GET("games")
-    suspend fun getGames(
+    suspend fun getGameList(
         @Query("key") apiKey: String = BuildConfig.API_KEY,
         @Query("platforms") platform: String = "21"
-    ): ListGameResponse
+    ): GameListResponse
+
+    @GET("{id}")
+    suspend fun getGameDetails(
+        @Path("id") id: Int,
+        @Query("key") apiKey: String = BuildConfig.API_KEY
+    ): GameDetailsResponse
 }

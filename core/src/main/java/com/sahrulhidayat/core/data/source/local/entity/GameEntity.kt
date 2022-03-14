@@ -19,13 +19,13 @@ data class GameEntity(
     val background: String,
 
     @ColumnInfo(name = "rating")
-    val rating: Double,
+    val rating: Double? = null,
 
     @ColumnInfo(name = "released")
-    val released: String,
+    val released: String? = null,
 
     @ColumnInfo(name = "genres")
-    val genres: String,
+    val genres: String? = null,
 
     @ColumnInfo(name = "description")
     val description: String? = null,

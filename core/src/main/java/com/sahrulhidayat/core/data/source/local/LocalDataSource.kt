@@ -7,9 +7,13 @@ import kotlinx.coroutines.flow.Flow
 
 class LocalDataSource constructor(private val mGameDao: GameDao) {
 
-    fun getAllGames(sort: String): Flow<List<GameEntity>> {
+    fun getGameList(sort: String): Flow<List<GameEntity>> {
         val query = SortUtils.getSortedQueryGames(sort)
-        return mGameDao.getAllGames(query)
+        return mGameDao.getGameList(query)
+    }
+
+    fun getGameDetails(id: Int): Flow<GameEntity> {
+        return mGameDao.getGameDetails(id)
     }
 
     fun getAllFavoriteGames(): Flow<List<GameEntity>> {
@@ -26,4 +30,6 @@ class LocalDataSource constructor(private val mGameDao: GameDao) {
     }
 
     suspend fun insertGame(game: List<GameEntity>) = mGameDao.insertDataGame(game)
+
+    fun updateGame(game: GameEntity) = mGameDao.updateDataGame(game)
 }

@@ -2,7 +2,7 @@ package com.sahrulhidayat.core.data.source.remote.response
 
 import com.google.gson.annotations.SerializedName
 
-data class GameResponse(
+data class GameDetailsResponse(
     @field:SerializedName("id")
     val id: Int,
 
@@ -19,8 +19,13 @@ data class GameResponse(
     val released: String,
 
     @field:SerializedName("genres")
-    val genres: String,
+    val genres: List<GameGenres>,
 
     @field:SerializedName("description_raw")
-    val descriptionRaw: String? = null,
+    val descriptionRaw: String,
+)
+
+data class GameGenres(
+    @field:SerializedName("name")
+    val name: String,
 )

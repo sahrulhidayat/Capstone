@@ -9,7 +9,11 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface GameDao {
     @RawQuery(observedEntities = [GameEntity::class])
-    fun getAllGames(query: SupportSQLiteQuery): Flow<List<GameEntity>>
+    fun getGameList(query: SupportSQLiteQuery): Flow<List<GameEntity>>
+
+    @Transaction
+    @Query("SELECT * FROM game_entities WHERE id = :id")
+    fun getGameDetails(id: Int): Flow<GameEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertDataGame(games: List<GameEntity>)

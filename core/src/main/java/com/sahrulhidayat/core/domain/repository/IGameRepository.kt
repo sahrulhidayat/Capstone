@@ -5,7 +5,9 @@ import com.sahrulhidayat.core.domain.model.GameModel
 import kotlinx.coroutines.flow.Flow
 
 interface IGameRepository {
-    fun getAllGames(sort: String): Flow<Resource<List<GameModel>>>
+    fun getGameList(sort: String): Flow<Resource<List<GameModel>>>
+
+    fun getGameDetails(id: Int): Flow<Resource<GameModel>>
 
     fun getAllFavoriteGames(): Flow<List<GameModel>>
 
