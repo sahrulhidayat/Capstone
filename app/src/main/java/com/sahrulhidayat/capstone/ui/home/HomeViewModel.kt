@@ -1,4 +1,4 @@
-package com.sahrulhidayat.capstone.home
+package com.sahrulhidayat.capstone.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -8,7 +8,7 @@ import com.sahrulhidayat.core.domain.model.GameModel
 import com.sahrulhidayat.core.domain.usecase.GameUseCase
 
 class HomeViewModel(private val gameUseCase: GameUseCase) : ViewModel() {
-    fun getAllGames(sort: String): LiveData<Resource<List<GameModel>>> {
-        return gameUseCase.getAllGames(sort).asLiveData()
+    fun getGameList(sort: String): LiveData<Resource<List<GameModel>>> {
+        return gameUseCase.getGameList(sort).asLiveData()
     }
 }

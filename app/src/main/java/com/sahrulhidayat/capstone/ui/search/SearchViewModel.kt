@@ -1,4 +1,4 @@
-package com.sahrulhidayat.capstone.search
+package com.sahrulhidayat.capstone.ui.search
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

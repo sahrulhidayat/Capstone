@@ -1,4 +1,4 @@
-package com.sahrulhidayat.capstone.detail
+package com.sahrulhidayat.capstone.ui.detail
 
 import android.os.Bundle
 import android.view.LayoutInflater

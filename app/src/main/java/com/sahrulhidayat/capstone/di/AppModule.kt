@@ -1,8 +1,8 @@
 package com.sahrulhidayat.capstone.di
 
-import com.sahrulhidayat.capstone.detail.DetailsViewModel
-import com.sahrulhidayat.capstone.home.HomeViewModel
-import com.sahrulhidayat.capstone.search.SearchViewModel
+import com.sahrulhidayat.capstone.ui.detail.DetailsViewModel
+import com.sahrulhidayat.capstone.ui.home.HomeViewModel
+import com.sahrulhidayat.capstone.ui.search.SearchViewModel
 import com.sahrulhidayat.core.domain.usecase.GameInteractor
 import com.sahrulhidayat.core.domain.usecase.GameUseCase
 import org.koin.androidx.viewmodel.dsl.viewModel

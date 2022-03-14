@@ -1,4 +1,4 @@
-package com.sahrulhidayat.capstone.home
+package com.sahrulhidayat.capstone.ui.home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
