@@ -16,7 +16,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@color/purple_700"
             app:titleTextColor="@color/white"
-            app:title="The Movie" />
+            app:title="Best Game of 2022" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
