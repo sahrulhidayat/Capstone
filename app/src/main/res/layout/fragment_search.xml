@@ -6,16 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.search.SearchFragment">
 
-    <include
-        android:id="@+id/include"
-        layout="@layout/appbar_main" />
-
     <androidx.appcompat.widget.SearchView
-        android:id="@+id/svGame"
+        android:id="@+id/svSearchGame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="4dp"
         app:defaultQueryHint="Search"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,13 +21,12 @@
         android:id="@+id/rvSearch"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/svGame"
-        tools:listitem="@layout/item_list"
-        tools:spanCount="3"
-        tools:itemCount="5"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
+        app:layout_constraintTop_toBottomOf="@id/svSearchGame"
+        tools:listitem="@layout/item_list" />
 
     <ProgressBar
         android:id="@+id/progressBar"

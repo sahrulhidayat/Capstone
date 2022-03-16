@@ -13,19 +13,14 @@
         android:layout_height="match_parent"
         android:layout_above="@id/bottom_nav"
         app:defaultNavHost="true"
-        app:navGraph="@navigation/main_navigation"/>
-    
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.7dp"
-        android:layout_above="@+id/bottom_nav"
-        android:background="@color/black"/>
+        app:navGraph="@navigation/main_navigation" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/menu_bottom_nav" />
+        app:menu="@menu/menu_bottom_nav"
+        android:elevation="4dp" />
 
 </RelativeLayout>
