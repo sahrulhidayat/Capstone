@@ -20,6 +20,13 @@ class SearchFragment : Fragment() {
         return binding?.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding?.svSearchGame?.requestFocus()
+
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _fragmentSearchBinding = null

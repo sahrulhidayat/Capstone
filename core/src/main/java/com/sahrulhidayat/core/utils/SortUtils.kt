@@ -5,7 +5,7 @@ import androidx.sqlite.db.SimpleSQLiteQuery
 object SortUtils {
     const val NEWEST = "newest"
     const val OLDEST = "oldest"
-    const val RATING = "popularity"
+    const val RATING = "rating"
 
     fun getSortedQueryGames(filter: String): SimpleSQLiteQuery {
         val simpleQuery = StringBuilder().append("SELECT * FROM game_entities")
