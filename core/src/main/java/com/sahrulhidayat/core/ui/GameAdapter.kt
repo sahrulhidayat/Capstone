@@ -42,6 +42,8 @@ class GameAdapter : RecyclerView.Adapter<GameAdapter.GameViewHolder>() {
             with(binding) {
                 txtName.text = game.name
                 context.loadImage(game.background, imgPoster)
+                txtRating.text = game.rating.toString()
+                txtGenres.text = game.genres
             }
         }
 
