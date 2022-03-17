@@ -10,16 +10,62 @@
         android:id="@+id/appBar"
         layout="@layout/appbar_main" />
 
+    <LinearLayout
+        android:id="@+id/exploreMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBar"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Game"
+            android:layout_margin="4dp"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            app:drawableTopCompat="@drawable/ic_refresh"
+            android:textAlignment="center"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="Top Rated"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            app:drawableTopCompat="@drawable/ic_star"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="Popular"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:textAlignment="center"
+            app:drawableTopCompat="@drawable/ic_fire"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvHome"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingTop="8dp"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/appBar"
+        app:layout_constraintTop_toBottomOf="@id/exploreMenu"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:listitem="@layout/item_list" />
 

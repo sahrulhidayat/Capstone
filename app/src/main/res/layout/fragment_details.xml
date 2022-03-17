@@ -68,7 +68,7 @@
                     tools:text="5.0"
                     android:textColor="@color/white"
                     android:textSize="20sp"
-                    app:drawableEndCompat="@drawable/ic_rating"
+                    app:drawableEndCompat="@drawable/ic_star"
                     app:drawableTint="@color/white" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
