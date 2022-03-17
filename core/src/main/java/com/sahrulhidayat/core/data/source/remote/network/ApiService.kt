@@ -11,7 +11,6 @@ interface ApiService {
     @GET("games")
     suspend fun getGameList(
         @Query("key") apiKey: String = BuildConfig.API_KEY,
-        @Query("platforms") platform: String = "21"
     ): GameListResponse
 
     @GET("{id}")

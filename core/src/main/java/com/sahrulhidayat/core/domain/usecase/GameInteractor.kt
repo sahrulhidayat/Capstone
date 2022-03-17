@@ -18,7 +18,7 @@ class GameInteractor(private val gameRepository: IGameRepository): GameUseCase {
         return gameRepository.getAllFavoriteGames()
     }
 
-    override fun getSearchedGames(name: String): Flow<List<GameModel>> {
+    override fun getSearchedGames(name: String): Flow<Resource<List<GameModel>>> {
         return gameRepository.getSearchedGames(name)
     }
 

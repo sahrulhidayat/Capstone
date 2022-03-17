@@ -7,9 +7,12 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.sahrulhidayat.capstone.R
 import com.sahrulhidayat.capstone.databinding.FragmentSearchBinding
+import com.sahrulhidayat.core.data.source.Resource
 import com.sahrulhidayat.core.ui.GameAdapter
 import com.sahrulhidayat.core.utils.gone
+import com.sahrulhidayat.core.utils.showSnackbar
 import com.sahrulhidayat.core.utils.visible
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -56,7 +59,17 @@ class SearchFragment : Fragment() {
 
     private fun getSearchedGames(name: String) {
         viewModel.getSearchedGames(name).observe(requireActivity()) { games ->
-            gameAdapter.setData(games)
+            when (games) {
+                is Resource.Loading -> showLoading(true)
+                is Resource.Success -> {
+                    showLoading(false)
+                    gameAdapter.setData(games.data)
+                }
+                is Resource.Error -> {
+                    showLoading(false)
+                    view?.showSnackbar(getString(R.string.error_loading))
+                }
+            }
         }
     }
 
