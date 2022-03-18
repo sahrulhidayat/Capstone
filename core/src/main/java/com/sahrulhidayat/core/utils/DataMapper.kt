@@ -15,6 +15,8 @@ object DataMapper {
                 id = it.id,
                 name = it.name,
                 background = it.backgroundImage,
+                rating = it.rating,
+                genres = genresString(it.genres),
                 isFavorite = false,
             )
             gameList.add(game)
