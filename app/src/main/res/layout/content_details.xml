@@ -20,13 +20,13 @@
 
     <TextView
         android:id="@+id/txtDescription"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/releaseTitle"
-        tools:text="Release Date" />
+        app:layout_constraintStart_toStartOf="@+id/descriptionTitle"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionTitle"
+        tools:text="@tools:sample/lorem" />
 
     <TextView
         android:id="@+id/releaseTitle"
@@ -39,17 +39,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtRelease" />
+        app:layout_constraintTop_toBottomOf="@+id/txtDescription" />
 
     <TextView
         android:id="@+id/txtRelease"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/descriptionTitle"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionTitle"
-        tools:text="@tools:sample/lorem" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/releaseTitle"
+        tools:text="Release Date" />
 
     <TextView
         android:id="@+id/genreTitle"
@@ -62,7 +62,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.418"
         app:layout_constraintStart_toEndOf="@+id/releaseTitle"
-        app:layout_constraintTop_toBottomOf="@+id/txtRelease" />
+        app:layout_constraintTop_toBottomOf="@+id/txtDescription" />
 
     <TextView
         android:id="@+id/txtGenre"
@@ -85,7 +85,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDescription" />
+        app:layout_constraintTop_toBottomOf="@+id/txtRelease" />
 
     <TextView
         android:id="@+id/txtTags"

@@ -8,7 +8,7 @@ object SortUtils {
     const val RATING = "rating"
 
     fun getSortedQueryGames(filter: String): SimpleSQLiteQuery {
-        val simpleQuery = StringBuilder().append("SELECT * FROM game_entities")
+        val simpleQuery = StringBuilder().append("SELECT * FROM game_entities ")
         when (filter) {
             NEWEST -> {
                 simpleQuery.append("ORDER BY released DESC")

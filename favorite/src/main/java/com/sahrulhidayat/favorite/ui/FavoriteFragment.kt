@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sahrulhidayat.core.ui.GameAdapter
 import com.sahrulhidayat.favorite.databinding.FragmentFavoriteBinding
+import com.sahrulhidayat.favorite.di.favoriteModule
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.context.loadKoinModules
 
 class FavoriteFragment : Fragment() {
 
@@ -17,6 +19,9 @@ class FavoriteFragment : Fragment() {
 
     private val viewModel by viewModel<FavoriteViewModel>()
     private val gameAdapter: GameAdapter by lazy { GameAdapter() }
+
+    private val loadFeatures by lazy { loadKoinModules(favoriteModule) }
+    private fun injectFeatures() = loadFeatures
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +33,8 @@ class FavoriteFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        injectFeatures()
 
         binding?.rvFavorite?.apply {
             layoutManager = LinearLayoutManager(context)

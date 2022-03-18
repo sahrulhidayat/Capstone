@@ -47,5 +47,11 @@ class GameAdapter : RecyclerView.Adapter<GameAdapter.GameViewHolder>() {
                 txtGenres.text = game.genres
             }
         }
+
+        init {
+            binding.root.setOnClickListener {
+                onClickItem?.invoke(gameList[bindingAdapterPosition])
+            }
+        }
     }
 }
