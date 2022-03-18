@@ -1,11 +1,14 @@
 package com.sahrulhidayat.capstone.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sahrulhidayat.capstone.R
 import com.sahrulhidayat.capstone.databinding.FragmentHomeBinding
+import com.sahrulhidayat.capstone.ui.detail.DetailsActivity
+import com.sahrulhidayat.capstone.ui.detail.DetailsActivity.Companion.EXTRA_GAME
 import com.sahrulhidayat.capstone.ui.search.SearchFragment
 import com.sahrulhidayat.core.data.source.Resource
 import com.sahrulhidayat.core.ui.GameAdapter
@@ -52,6 +55,12 @@ class HomeFragment : Fragment() {
                     view.showSnackbar(getString(R.string.error_loading))
                 }
             }
+        }
+
+        gameAdapter.onClickItem = { data ->
+            val intent = Intent(activity, DetailsActivity::class.java)
+            intent.putExtra(EXTRA_GAME, data)
+            startActivity(intent)
         }
     }
 

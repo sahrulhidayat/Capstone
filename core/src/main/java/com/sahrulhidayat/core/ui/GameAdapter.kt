@@ -12,6 +12,7 @@ import com.sahrulhidayat.core.utils.loadImage
 class GameAdapter : RecyclerView.Adapter<GameAdapter.GameViewHolder>() {
 
     private val gameList = ArrayList<GameModel>()
+    var onClickItem: ((GameModel) -> Unit)? = null
 
     fun setData(newGameList: List<GameModel>?) {
         if (newGameList == null) return
@@ -46,6 +47,5 @@ class GameAdapter : RecyclerView.Adapter<GameAdapter.GameViewHolder>() {
                 txtGenres.text = game.genres
             }
         }
-
     }
 }
