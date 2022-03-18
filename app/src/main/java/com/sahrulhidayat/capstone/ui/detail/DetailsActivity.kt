@@ -22,9 +22,10 @@ class DetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _activityDetailsBinding = ActivityDetailsBinding.inflate(layoutInflater)
-        setContentView(_activityDetailsBinding?.root)
+        setContentView(binding?.root)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = null
 
         val game = intent.getParcelableExtra<GameModel>(EXTRA_GAME)
 
