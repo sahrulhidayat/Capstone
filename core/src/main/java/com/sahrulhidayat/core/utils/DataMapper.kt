@@ -5,7 +5,6 @@ import com.sahrulhidayat.core.data.source.remote.response.GameDetailsResponse
 import com.sahrulhidayat.core.data.source.remote.response.GameResults
 import com.sahrulhidayat.core.domain.model.GameModel
 import com.sahrulhidayat.core.utils.DataFormatter.genresString
-import com.sahrulhidayat.core.utils.DataFormatter.tagsString
 
 object DataMapper {
     fun mapGameListResponseToEntities(input: List<GameResults>): List<GameEntity> {
@@ -15,8 +14,6 @@ object DataMapper {
                 id = it.id,
                 name = it.name,
                 background = it.backgroundImage,
-                rating = it.rating,
-                genres = genresString(it.genres),
                 isFavorite = false,
             )
             gameList.add(game)
@@ -27,8 +24,11 @@ object DataMapper {
     fun mapGameDetailsResponseToEntities(input: GameDetailsResponse): GameEntity {
         return GameEntity(
             id = input.id,
+            name = input.name,
+            background = input.backgroundImage,
+            rating = input.rating,
             released = input.released,
-            tags = tagsString(input.tags),
+            genres = genresString(input.genres),
             description = input.descriptionRaw,
             isFavorite = false,
         )
@@ -43,7 +43,6 @@ object DataMapper {
                 rating = it.rating,
                 released = it.released,
                 genres = it.genres,
-                tags = it.tags,
                 description = it.description,
                 isFavorite = it.isFavorite,
             )
@@ -58,7 +57,6 @@ object DataMapper {
             rating = input.rating,
             released = input.released,
             genres = input.genres,
-            tags = input.tags,
             description = input.description,
             isFavorite = input.isFavorite,
         )
@@ -72,7 +70,6 @@ object DataMapper {
             input.rating,
             input.released,
             input.genres,
-            input.tags,
             input.description,
             input.isFavorite,
         )
