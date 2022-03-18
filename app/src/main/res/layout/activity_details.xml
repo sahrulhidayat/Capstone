@@ -77,6 +77,17 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabFavorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Favorite Button"
+        android:src="@drawable/ic_favorite_border"
+        android:layout_margin="16dp"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+        app:layout_anchor="@id/appBarDetails"
+        app:layout_anchorGravity="bottom||end" />
+
     <include
         android:id="@+id/content"
         layout="@layout/content_details"

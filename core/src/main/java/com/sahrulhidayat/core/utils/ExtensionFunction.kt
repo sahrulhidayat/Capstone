@@ -21,11 +21,6 @@ fun Context.loadImage(url: String?, imageView: ImageView) {
         .into(imageView)
 }
 
-fun Context.showShortToast(message: CharSequence): Toast {
-    return Toast.makeText(this, message, Toast.LENGTH_SHORT)
-        .apply { show() }
-}
-
 fun View.showSnackbar( message: CharSequence): Snackbar {
     return Snackbar.make(this, message, Snackbar.LENGTH_LONG)
         .apply { show() }

@@ -2,6 +2,7 @@ package com.sahrulhidayat.capstone.ui.detail
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.sahrulhidayat.capstone.R
 import com.sahrulhidayat.capstone.databinding.ActivityDetailsBinding
 import com.sahrulhidayat.core.data.source.Resource
@@ -64,7 +65,33 @@ class DetailsActivity : AppCompatActivity() {
                 content.txtDescription.text = gameDetails.description
                 content.txtRelease.text = gameDetails.released
                 content.txtTags.text = gameDetails.tags
+
+                var favoriteStatus = gameDetails.isFavorite
+                setFavoriteIndicator(favoriteStatus)
+                fabFavorite.setOnClickListener {
+                    favoriteStatus = !favoriteStatus
+                    viewModel.setFavoriteGame(gameDetails, favoriteStatus)
+                    setFavoriteIndicator(favoriteStatus)
+                }
             }
+        }
+    }
+
+    private fun setFavoriteIndicator(isFavorite: Boolean) {
+        if (isFavorite) {
+            binding?.fabFavorite?.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this,
+                    R.drawable.ic_favorite
+                )
+            )
+        } else {
+            binding?.fabFavorite?.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this,
+                    R.drawable.ic_favorite_border
+                )
+            )
         }
     }
 
