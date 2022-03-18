@@ -33,6 +33,7 @@ class DetailsActivity : AppCompatActivity() {
                 txtName.text = game.name
                 applicationContext.loadImage(game.background, imgPoster)
                 txtRating.text = game.rating.toString()
+                content.txtGenre.text = game.genres
             }
 
             viewModel.getGameDetails(game.id).observe(this) { gameDetails ->
@@ -61,7 +62,6 @@ class DetailsActivity : AppCompatActivity() {
             binding?.apply {
                 content.txtDescription.text = gameDetails.description
                 content.txtRelease.text = gameDetails.released
-                content.txtGenre.text = gameDetails.genres
                 content.txtTags.text = gameDetails.tags
             }
         }

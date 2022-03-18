@@ -13,10 +13,10 @@ data class GameEntity(
     val id: Int,
 
     @ColumnInfo(name = "name")
-    val name: String,
+    val name: String? = null,
 
     @ColumnInfo(name = "background")
-    val background: String,
+    val background: String? = null,
 
     @ColumnInfo(name = "rating")
     val rating: Double? = null,
@@ -26,6 +26,9 @@ data class GameEntity(
 
     @ColumnInfo(name = "genres")
     val genres: String? = null,
+
+    @ColumnInfo(name = "tags")
+    val tags: String? = null,
 
     @ColumnInfo(name = "description")
     val description: String? = null,

@@ -16,4 +16,15 @@ data class GameResults(
 
     @field:SerializedName("background_image")
     val backgroundImage: String,
+
+    @field:SerializedName("rating")
+    val rating: Double,
+
+    @field:SerializedName("genres")
+    val genres: List<GameGenres>,
+)
+
+data class GameGenres(
+    @field:SerializedName("name")
+    val name: String,
 )
