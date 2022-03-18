@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sahrulhidayat.capstone.R
 import com.sahrulhidayat.capstone.databinding.FragmentHomeBinding
 import com.sahrulhidayat.capstone.ui.detail.DetailsActivity
-import com.sahrulhidayat.capstone.ui.detail.DetailsActivity.Companion.EXTRA_GAME
+import com.sahrulhidayat.capstone.ui.detail.DetailsActivity.Companion.EXTRA_ID
 import com.sahrulhidayat.capstone.ui.search.SearchFragment
 import com.sahrulhidayat.core.data.source.Resource
 import com.sahrulhidayat.core.ui.GameAdapter
@@ -59,7 +59,7 @@ class HomeFragment : Fragment() {
 
         gameAdapter.onClickItem = { data ->
             val intent = Intent(activity, DetailsActivity::class.java)
-            intent.putExtra(EXTRA_GAME, data)
+            intent.putExtra(EXTRA_ID, data.id)
             startActivity(intent)
         }
     }

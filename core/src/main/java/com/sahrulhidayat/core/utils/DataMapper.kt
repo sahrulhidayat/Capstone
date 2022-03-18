@@ -5,6 +5,7 @@ import com.sahrulhidayat.core.data.source.remote.response.GameDetailsResponse
 import com.sahrulhidayat.core.data.source.remote.response.GameResults
 import com.sahrulhidayat.core.domain.model.GameModel
 import com.sahrulhidayat.core.utils.DataFormatter.genresString
+import com.sahrulhidayat.core.utils.DataFormatter.tagsString
 
 object DataMapper {
     fun mapGameListResponseToEntities(input: List<GameResults>): List<GameEntity> {
@@ -29,6 +30,7 @@ object DataMapper {
             rating = input.rating,
             released = input.released,
             genres = genresString(input.genres),
+            tags = tagsString(input.tags),
             description = input.descriptionRaw,
             isFavorite = false,
         )
@@ -43,6 +45,7 @@ object DataMapper {
                 rating = it.rating,
                 released = it.released,
                 genres = it.genres,
+                tags = it.tags,
                 description = it.description,
                 isFavorite = it.isFavorite,
             )
@@ -57,6 +60,7 @@ object DataMapper {
             rating = input.rating,
             released = input.released,
             genres = input.genres,
+            tags = input.tags,
             description = input.description,
             isFavorite = input.isFavorite,
         )
@@ -70,6 +74,7 @@ object DataMapper {
             input.rating,
             input.released,
             input.genres,
+            input.tags,
             input.description,
             input.isFavorite,
         )

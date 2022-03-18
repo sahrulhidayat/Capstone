@@ -21,11 +21,14 @@ data class GameDetailsResponse(
     @field:SerializedName("genres")
     val genres: List<GameGenres>,
 
+    @field:SerializedName("tags")
+    val tags: List<GameTags>,
+
     @field:SerializedName("description_raw")
     val descriptionRaw: String,
 )
 
-data class GameGenres(
+data class GameTags(
     @field:SerializedName("name")
     val name: String,
 )

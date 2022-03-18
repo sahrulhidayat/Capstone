@@ -27,6 +27,9 @@ data class GameEntity(
     @ColumnInfo(name = "genres")
     val genres: String? = null,
 
+    @ColumnInfo(name = "tags")
+    val tags: String? = null,
+
     @ColumnInfo(name = "description")
     val description: String? = null,
 

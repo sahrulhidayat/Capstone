@@ -28,26 +28,18 @@ class DetailsActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = null
 
-        val game = intent.getParcelableExtra<GameModel>(EXTRA_GAME)
+        val gameId = intent.getIntExtra(EXTRA_ID, 0)
 
-        if (game != null) {
-            binding?.apply {
-                txtName.text = game.name
-                applicationContext.loadImage(game.background, imgPoster)
-                txtRating.text = game.rating.toString()
-            }
-
-            viewModel.getGameDetails(game.id).observe(this) { gameDetails ->
-                when (gameDetails) {
-                    is Resource.Loading -> showLoading(true)
-                    is Resource.Success -> {
-                        showLoading(false)
-                        setDetailsData(gameDetails.data)
-                    }
-                    is Resource.Error -> {
-                        showLoading(false)
-                        binding?.root?.showSnackbar(getString(R.string.error_loading))
-                    }
+        viewModel.getGameDetails(gameId).observe(this) { gameDetails ->
+            when (gameDetails) {
+                is Resource.Loading -> showLoading(true)
+                is Resource.Success -> {
+                    showLoading(false)
+                    setDetailsData(gameDetails.data)
+                }
+                is Resource.Error -> {
+                    showLoading(false)
+                    binding?.root?.showSnackbar(getString(R.string.error_loading))
                 }
             }
         }
@@ -61,6 +53,9 @@ class DetailsActivity : AppCompatActivity() {
     private fun setDetailsData(gameDetails: GameModel?) {
         if (gameDetails != null) {
             binding?.apply {
+                txtName.text = gameDetails.name
+                applicationContext.loadImage(gameDetails.background, imgPoster)
+                txtRating.text = gameDetails.rating.toString()
                 content.txtDescription.text = gameDetails.description
                 content.txtRelease.text = gameDetails.released
                 content.txtGenre.text = gameDetails.genres
@@ -106,6 +101,6 @@ class DetailsActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val EXTRA_GAME = "extra_game"
+        const val EXTRA_ID = "extra_id"
     }
 }
