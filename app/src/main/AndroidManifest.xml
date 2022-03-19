@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Capstone">
-        <activity android:name=".ui.detail.DetailsActivity" />
+        <activity
+            android:name=".ui.detail.DetailsActivity"
+            android:theme="@style/Theme.Details" />
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">
