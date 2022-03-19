@@ -9,7 +9,6 @@ import com.sahrulhidayat.core.domain.model.GameModel
 import com.sahrulhidayat.core.domain.repository.IGameRepository
 import com.sahrulhidayat.core.utils.AppExecutors
 import com.sahrulhidayat.core.utils.DataMapper
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
@@ -59,7 +58,9 @@ class GameRepository constructor(
 
             override suspend fun saveCallResult(data: GameDetailsResponse) {
                 val gameDetails = DataMapper.mapGameDetailsResponseToEntities(data)
-                coroutineScope { localDataSource.updateGame(gameDetails) }
+                appExecutors.diskIO().execute {
+                    localDataSource.updateGame(gameDetails)
+                }
             }
         }.asLiveData()
     }
