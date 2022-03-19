@@ -2,7 +2,7 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.detail.DetailsActivity">
@@ -36,40 +36,42 @@
 
                 <TextView
                     android:id="@+id/txtName"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="@+id/imgPoster"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0"
                     android:layout_marginStart="16dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_collapseMode="pin"
+                    app:layout_constraintBottom_toTopOf="@+id/txtRating"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1"
-                    app:layout_collapseMode="pin"
-                    tools:text="Sample Game Title"
-                    android:textColor="@color/white"
-                    android:textSize="22sp"/>
+                    app:layout_constraintVertical_bias="1.0"
+                    tools:text="Sample Game Title" />
 
                 <TextView
                     android:id="@+id/txtRating"
-                    android:drawablePadding="8dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:drawablePadding="4dp"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:drawableEndCompat="@drawable/ic_star_16dp"
+                    app:drawableTint="@color/white"
+                    app:layout_collapseMode="pin"
                     app:layout_constraintBottom_toBottomOf="@id/imgPoster"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0"
-                    app:layout_constraintStart_toEndOf="@id/txtName"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1"
-                    app:layout_collapseMode="pin"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginBottom="16dp"
-                    tools:text="5.0"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    app:drawableEndCompat="@drawable/ic_star"
-                    app:drawableTint="@color/white" />
+                    app:layout_constraintVertical_bias="1.0"
+                    tools:text="5.0" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -92,10 +94,10 @@
         android:id="@+id/content"
         layout="@layout/content_details"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layout_anchor="@id/appBarDetails"
         app:layout_anchorGravity="bottom"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
     <ProgressBar
         android:id="@+id/progressBar"
