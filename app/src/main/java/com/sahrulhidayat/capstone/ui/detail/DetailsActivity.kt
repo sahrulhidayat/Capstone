@@ -25,7 +25,6 @@ class DetailsActivity : AppCompatActivity() {
         _activityDetailsBinding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = null
 
         val gameId = intent.getIntExtra(EXTRA_ID, 0)
@@ -45,17 +44,12 @@ class DetailsActivity : AppCompatActivity() {
         }
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return super.onSupportNavigateUp()
-    }
-
     private fun setDetailsData(gameDetails: GameModel?) {
         if (gameDetails != null) {
             binding?.apply {
-                txtName.text = gameDetails.name
                 applicationContext.loadImage(gameDetails.background, imgPoster)
-                txtRating.text = gameDetails.rating.toString()
+                content.txtName.text = gameDetails.name
+                content.txtRating.text = gameDetails.rating.toString()
                 content.txtDescription.text = gameDetails.description
                 content.txtRelease.text = gameDetails.released
                 content.txtGenre.text = gameDetails.genres
