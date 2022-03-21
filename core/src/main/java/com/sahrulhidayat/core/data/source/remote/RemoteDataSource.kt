@@ -48,20 +48,4 @@ class RemoteDataSource(private val apiService: ApiService) {
         }.flowOn(Dispatchers.IO)
     }
 
-    suspend fun searchGame(query: String): Flow<ApiResponse<List<GameResults>>> {
-        return flow {
-            try {
-                val response = apiService.searchGame(query)
-                val gameList = response.results
-                if (gameList.isNotEmpty()) {
-                    emit(ApiResponse.Success(response.results))
-                } else {
-                    emit(ApiResponse.Empty)
-                }
-            } catch (e: Exception) {
-                emit(ApiResponse.Error(e.toString()))
-                Log.e(TAG, "searchGame: $e")
-            }
-        }.flowOn(Dispatchers.IO)
-    }
 }

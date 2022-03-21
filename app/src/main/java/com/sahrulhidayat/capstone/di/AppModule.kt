@@ -2,7 +2,6 @@ package com.sahrulhidayat.capstone.di
 
 import com.sahrulhidayat.capstone.ui.detail.DetailsViewModel
 import com.sahrulhidayat.capstone.ui.home.HomeViewModel
-import com.sahrulhidayat.capstone.ui.search.SearchViewModel
 import com.sahrulhidayat.core.domain.usecase.GameInteractor
 import com.sahrulhidayat.core.domain.usecase.GameUseCase
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -14,6 +13,5 @@ val useCaseModule = module {
 
 val viewModelModule = module {
     viewModel { HomeViewModel(get()) }
-    viewModel { SearchViewModel(get()) }
     viewModel { DetailsViewModel(get()) }
 }

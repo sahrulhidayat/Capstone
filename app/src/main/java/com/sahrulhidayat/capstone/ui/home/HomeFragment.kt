@@ -2,14 +2,15 @@ package com.sahrulhidayat.capstone.ui.home
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sahrulhidayat.capstone.R
 import com.sahrulhidayat.capstone.databinding.FragmentHomeBinding
 import com.sahrulhidayat.capstone.ui.detail.DetailsActivity
 import com.sahrulhidayat.capstone.ui.detail.DetailsActivity.Companion.EXTRA_ID
-import com.sahrulhidayat.capstone.ui.search.SearchFragment
 import com.sahrulhidayat.core.data.source.Resource
 import com.sahrulhidayat.core.ui.GameAdapter
 import com.sahrulhidayat.core.utils.SortUtils
@@ -62,25 +63,6 @@ class HomeFragment : Fragment() {
             intent.putExtra(EXTRA_ID, data.id)
             startActivity(intent)
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.appbar_menu, menu)
-        return super.onCreateOptionsMenu(menu, inflater)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.search -> loadFragment(SearchFragment())
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
-    private fun loadFragment(fragment: Fragment) {
-        val transaction = activity?.supportFragmentManager?.beginTransaction()
-        transaction?.replace(R.id.homeFragment, fragment)
-        transaction?.addToBackStack(null)
-        transaction?.commit()
     }
 
     private fun showLoading(state: Boolean) {

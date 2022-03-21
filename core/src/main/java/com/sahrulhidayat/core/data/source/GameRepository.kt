@@ -71,29 +71,6 @@ class GameRepository constructor(
         }
     }
 
-    override fun getSearchedGames(name: String): Flow<Resource<List<GameModel>>> {
-        return object : NetworkBoundResource<List<GameModel>, List<GameResults>>() {
-            override fun loadFromDB(): Flow<List<GameModel>> {
-                return localDataSource.getSearchedGames(name).map {
-                    DataMapper.mapEntitiesToDomain(it)
-                }
-            }
-
-            override fun shouldFetch(data: List<GameModel>?): Boolean {
-                return data.isNullOrEmpty()
-            }
-
-            override suspend fun createCall(): Flow<ApiResponse<List<GameResults>>> {
-                return remoteDataSource.searchGame(name)
-            }
-
-            override suspend fun saveCallResult(data: List<GameResults>) {
-                val searchedGameList = DataMapper.mapGameListResponseToEntities(data)
-                localDataSource.insertGame(searchedGameList)
-            }
-        }.asLiveData()
-    }
-
     override fun setFavoriteGame(game: GameModel, state: Boolean) {
         val gameEntity = DataMapper.mapDomainToEntity(game)
         appExecutors.diskIO().execute {
