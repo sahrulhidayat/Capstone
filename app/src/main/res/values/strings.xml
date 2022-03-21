@@ -2,4 +2,13 @@
     <string name="app_name">Capstone</string>
     <string name="error_loading">Error loading content</string>
     <string name="title_favorite">Favorite</string>
+    <string name="favorite_button">Favorite Button</string>
+    <string name="sample_game_title">Sample Game Title</string>
+    <string name="description">Description</string>
+    <string name="release_date">Release Date</string>
+    <string name="genre">Genre</string>
+    <string name="tags">Tags</string>
+    <string name="search_game">Search Game</string>
+    <string name="favorite">Favorite</string>
+    <string name="home">Home</string>
 </resources>

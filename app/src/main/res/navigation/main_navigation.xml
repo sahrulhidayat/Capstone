@@ -9,19 +9,18 @@
         android:id="@+id/homeFragment"
         android:name="com.sahrulhidayat.capstone.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+    </fragment>
 
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.sahrulhidayat.favorite.ui.FavoriteFragment"
-        app:moduleName="Capstone.favorite"
-        android:label="fragment_favorite"
-        tools:layout="@layout/fragment_favorite" />
+        app:moduleName="Capstone.favorite" />
 
     <include-dynamic
         android:id="@+id/dynamicFeatureFavorite"
-        app:graphPackage="com.sahrulhidayat.favorite"
+        app:moduleName="Capstone.favorite"
         app:graphResName="favorite_navigation"
-        app:moduleName="Capstone.favorite" />
+        app:graphPackage="com.sahrulhidayat.favorite"/>
 
 </navigation>

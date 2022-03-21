@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="image_poster">image_poster</string>
+    <string name="sample_game_title">Sample Game Title</string>
 </resources>

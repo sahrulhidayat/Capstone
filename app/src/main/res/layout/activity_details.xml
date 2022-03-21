@@ -51,7 +51,7 @@
         android:id="@+id/fabFavorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="Favorite Button"
+        android:contentDescription="@string/favorite_button"
         android:src="@drawable/ic_favorite_border"
         android:layout_margin="16dp"
         app:layout_anchor="@id/appBarDetails"

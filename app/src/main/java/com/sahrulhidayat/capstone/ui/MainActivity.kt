@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.hide()
+        setSupportActionBar(binding.toolbar)
 
         NavigationUI.setupWithNavController(binding.bottomNav, navController)
     }
