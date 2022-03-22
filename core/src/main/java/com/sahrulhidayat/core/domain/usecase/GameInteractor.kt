@@ -6,8 +6,8 @@ import com.sahrulhidayat.core.domain.repository.IGameRepository
 import kotlinx.coroutines.flow.Flow
 
 class GameInteractor(private val gameRepository: IGameRepository): GameUseCase {
-    override fun getGameList(sort: String): Flow<Resource<List<GameModel>>> {
-        return gameRepository.getGameList(sort)
+    override fun getGameList(ordering: String): Flow<Resource<List<GameModel>>> {
+        return gameRepository.getGameList(ordering)
     }
 
     override fun getGameDetails(id: Int): Flow<Resource<GameModel>> {

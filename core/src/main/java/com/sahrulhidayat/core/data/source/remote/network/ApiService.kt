@@ -10,6 +10,7 @@ import retrofit2.http.Query
 interface ApiService {
     @GET("games")
     suspend fun getGameList(
+        @Query("ordering") ordering: String,
         @Query("key") apiKey: String = BuildConfig.API_KEY,
     ): GameListResponse
 

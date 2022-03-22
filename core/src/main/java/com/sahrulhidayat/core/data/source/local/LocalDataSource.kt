@@ -9,7 +9,7 @@ class LocalDataSource constructor(private val mGameDao: GameDao) {
 
     fun getGameList(sort: String): Flow<List<GameEntity>> {
         val query = SortUtils.getSortedQueryGames(sort)
-        return mGameDao.getGameList(query)
+        return mGameDao.getGameList()
     }
 
     fun getGameDetails(id: Int): Flow<GameEntity> {

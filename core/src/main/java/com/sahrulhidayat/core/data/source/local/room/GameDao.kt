@@ -8,8 +8,8 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface GameDao {
-    @RawQuery(observedEntities = [GameEntity::class])
-    fun getGameList(query: SupportSQLiteQuery): Flow<List<GameEntity>>
+    @Query("SELECT * FROM game_entities")
+    fun getGameList(): Flow<List<GameEntity>>
 
     @Transaction
     @Query("SELECT * FROM game_entities WHERE id = :id")

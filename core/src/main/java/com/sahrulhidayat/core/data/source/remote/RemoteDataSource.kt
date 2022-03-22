@@ -15,10 +15,10 @@ import kotlinx.coroutines.flow.flowOn
 class RemoteDataSource(private val apiService: ApiService) {
     private val apiKey = BuildConfig.API_KEY
 
-    suspend fun getGameList(): Flow<ApiResponse<List<GameResults>>> {
+    suspend fun getGameList(ordering: String): Flow<ApiResponse<List<GameResults>>> {
         return flow {
             try {
-                val response = apiService.getGameList(apiKey)
+                val response = apiService.getGameList(ordering, apiKey)
                 val gameList = response.results
                 if (gameList.isNotEmpty()) {
                     emit(ApiResponse.Success(response.results))

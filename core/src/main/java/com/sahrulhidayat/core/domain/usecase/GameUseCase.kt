@@ -5,7 +5,7 @@ import com.sahrulhidayat.core.domain.model.GameModel
 import kotlinx.coroutines.flow.Flow
 
 interface GameUseCase {
-    fun getGameList(sort: String): Flow<Resource<List<GameModel>>>
+    fun getGameList(ordering: String): Flow<Resource<List<GameModel>>>
 
     fun getGameDetails(id: Int): Flow<Resource<GameModel>>
 
