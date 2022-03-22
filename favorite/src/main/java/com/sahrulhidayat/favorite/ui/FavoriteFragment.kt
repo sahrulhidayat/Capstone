@@ -1,12 +1,16 @@
 package com.sahrulhidayat.favorite.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.sahrulhidayat.capstone.ui.MainActivity
+import com.sahrulhidayat.capstone.ui.detail.DetailsActivity
 import com.sahrulhidayat.core.ui.GameAdapter
+import com.sahrulhidayat.favorite.R
 import com.sahrulhidayat.favorite.databinding.FragmentFavoriteBinding
 import com.sahrulhidayat.favorite.di.favoriteModule
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -36,6 +40,8 @@ class FavoriteFragment : Fragment() {
 
         injectFeatures()
 
+        (activity as MainActivity).supportActionBar?.title = getString(R.string.title_favorite)
+
         binding?.rvFavorite?.apply {
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
@@ -44,6 +50,12 @@ class FavoriteFragment : Fragment() {
 
         viewModel.getAllFavoriteGame().observe(viewLifecycleOwner) { games ->
             gameAdapter.setData(games)
+        }
+
+        gameAdapter.onClickItem = { data ->
+            val intent = Intent(activity, DetailsActivity::class.java)
+            intent.putExtra(DetailsActivity.EXTRA_ID, data.id)
+            startActivity(intent)
         }
     }
 

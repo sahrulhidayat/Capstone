@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/home_nav">
+    app:startDestination="@id/nav_home">
 
     <fragment
-        android:id="@+id/home_nav"
+        android:id="@+id/nav_home"
         android:name="com.sahrulhidayat.capstone.ui.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
     </fragment>
 
     <fragment
-        android:id="@+id/favorite_nav"
+        android:id="@+id/nav_favorite"
         android:name="com.sahrulhidayat.favorite.ui.FavoriteFragment"
-        app:moduleName="Capstone.favorite" />
+        app:moduleName="favorite" />
 
     <include-dynamic
         android:id="@+id/include_favorite"
-        app:moduleName="Capstone.favorite"
+        app:moduleName="favorite"
         app:graphResName="favorite_navigation"
         app:graphPackage="com.sahrulhidayat.favorite"/>
 

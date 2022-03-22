@@ -9,7 +9,7 @@
         android:id="@+id/favoriteFragment"
         android:name="com.sahrulhidayat.favorite.ui.FavoriteFragment"
         android:label="fragment_favorite"
-        app:moduleName="Capstone.favorite"
+        app:moduleName="favorite"
         tools:layout="@layout/fragment_favorite" />
 
 </navigation>
