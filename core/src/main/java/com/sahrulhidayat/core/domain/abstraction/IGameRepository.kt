@@ -1,4 +1,4 @@
-package com.sahrulhidayat.core.domain.`interface`
+package com.sahrulhidayat.core.domain.abstraction
 
 import com.sahrulhidayat.core.data.source.Resource
 import com.sahrulhidayat.core.domain.model.GameModel

@@ -8,8 +8,8 @@ import com.sahrulhidayat.core.data.source.local.LocalDataSource
 import com.sahrulhidayat.core.data.source.local.room.GameDatabase
 import com.sahrulhidayat.core.data.source.remote.RemoteDataSource
 import com.sahrulhidayat.core.data.source.remote.network.ApiService
-import com.sahrulhidayat.core.domain.`interface`.IGameRepository
-import com.sahrulhidayat.core.domain.`interface`.ISettingsPreference
+import com.sahrulhidayat.core.domain.abstraction.IGameRepository
+import com.sahrulhidayat.core.domain.abstraction.ISettingsPreference
 import com.sahrulhidayat.core.utils.AppExecutors
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -56,7 +56,12 @@ val repositoryModule = module {
     single<IGameRepository> {
         GameRepository(get(), get(), get())
     }
+}
+
+val dataStoreModule = module {
+    factory { }
+
     single<ISettingsPreference> {
-        SettingsPreference(get())
+        SettingsPreference(androidContext())
     }
 }

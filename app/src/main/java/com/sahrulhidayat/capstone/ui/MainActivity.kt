@@ -1,5 +1,6 @@
 package com.sahrulhidayat.capstone.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -10,7 +11,7 @@ import androidx.navigation.dynamicfeatures.fragment.DynamicNavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.sahrulhidayat.capstone.R
 import com.sahrulhidayat.capstone.databinding.ActivityMainBinding
-import com.sahrulhidayat.capstone.ui.settings.SettingsFragment
+import com.sahrulhidayat.capstone.ui.settings.SettingsActivity
 import com.sahrulhidayat.capstone.ui.settings.SettingsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -52,10 +53,8 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.settings -> {
-                supportFragmentManager
-                    .beginTransaction()
-                    .replace(R.id.content, SettingsFragment())
-                    .commit()
+                val intent = Intent(this, SettingsActivity::class.java)
+                startActivity(intent)
             }
         }
         return super.onOptionsItemSelected(item)

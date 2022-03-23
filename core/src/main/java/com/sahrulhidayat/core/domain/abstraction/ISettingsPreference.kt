@@ -1,4 +1,4 @@
-package com.sahrulhidayat.core.domain.`interface`
+package com.sahrulhidayat.core.domain.abstraction
 
 import kotlinx.coroutines.flow.Flow
 

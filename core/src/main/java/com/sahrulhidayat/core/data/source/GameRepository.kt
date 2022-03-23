@@ -6,7 +6,7 @@ import com.sahrulhidayat.core.data.source.remote.network.ApiResponse
 import com.sahrulhidayat.core.data.source.remote.response.GameDetailsResponse
 import com.sahrulhidayat.core.data.source.remote.response.GameResults
 import com.sahrulhidayat.core.domain.model.GameModel
-import com.sahrulhidayat.core.domain.`interface`.IGameRepository
+import com.sahrulhidayat.core.domain.abstraction.IGameRepository
 import com.sahrulhidayat.core.utils.AppExecutors
 import com.sahrulhidayat.core.utils.DataMapper
 import kotlinx.coroutines.flow.Flow

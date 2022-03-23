@@ -32,4 +32,6 @@
     <string name="dark_mode">Dark Mode</string>
     <string name="dark_mode_off">Dark mode is off</string>
     <string name="dark_mode_on">Dark mode is on</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

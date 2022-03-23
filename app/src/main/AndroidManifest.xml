@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Capstone">
         <activity
+            android:name=".ui.settings.SettingsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.detail.DetailsActivity"
             android:theme="@style/Theme.Capstone.NoActionBar" />
         <activity
