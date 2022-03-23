@@ -71,14 +71,14 @@ class DetailsActivity : AppCompatActivity() {
             binding?.fabFavorite?.setImageDrawable(
                 ContextCompat.getDrawable(
                     this,
-                    R.drawable.ic_favorite
+                    R.drawable.ic_favorite_white
                 )
             )
         } else {
             binding?.fabFavorite?.setImageDrawable(
                 ContextCompat.getDrawable(
                     this,
-                    R.drawable.ic_favorite_border
+                    R.drawable.ic_favorite_border_white
                 )
             )
         }

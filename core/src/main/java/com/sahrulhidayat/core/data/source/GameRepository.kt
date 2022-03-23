@@ -17,10 +17,10 @@ class GameRepository constructor(
     private val localDataSource: LocalDataSource,
     private val appExecutors: AppExecutors
 ) : IGameRepository {
-    override fun getGameList(ordering: String): Flow<Resource<List<GameModel>>> {
+    override fun getGameList(sort: String): Flow<Resource<List<GameModel>>> {
         return object : NetworkBoundResource<List<GameModel>, List<GameResults>>() {
             override fun loadFromDB(): Flow<List<GameModel>> {
-                return localDataSource.getGameList(ordering).map {
+                return localDataSource.getGameList(sort).map {
                     DataMapper.mapEntitiesToDomain(it)
                 }
             }
@@ -30,7 +30,7 @@ class GameRepository constructor(
             }
 
             override suspend fun createCall(): Flow<ApiResponse<List<GameResults>>> {
-                return remoteDataSource.getGameList(ordering)
+                return remoteDataSource.getGameList()
             }
 
             override suspend fun saveCallResult(data: List<GameResults>) {

@@ -47,12 +47,12 @@
         android:id="@+id/content"
         layout="@layout/content_details" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.github.clans.fab.FloatingActionButton
         android:id="@+id/fabFavorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/favorite_button"
-        android:src="@drawable/ic_favorite_border"
+        android:src="@drawable/ic_favorite_border_white"
         android:layout_margin="16dp"
         app:layout_anchor="@id/appBarDetails"
         app:layout_anchorGravity="bottom|end" />

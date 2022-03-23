@@ -22,4 +22,9 @@ dependencies {
     implementation "io.insert-koin:koin-core:$koin_version"
     implementation "io.insert-koin:koin-android:$koin_version"
 
+    // rxbinding
+    implementation 'com.jakewharton.rxbinding4:rxbinding:4.0.0'
+
+    //floating action button
+    implementation 'com.github.clans:fab:1.6.4'
 }

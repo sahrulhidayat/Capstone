@@ -16,6 +16,7 @@ object DataMapper {
                 name = it.name,
                 background = it.backgroundImage,
                 rating = it.rating,
+                released = it.released,
                 genres = genresString(it.genres),
                 isFavorite = false,
             )

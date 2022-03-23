@@ -8,7 +8,7 @@ import com.sahrulhidayat.core.domain.model.GameModel
 import com.sahrulhidayat.core.domain.usecase.GameUseCase
 
 class HomeViewModel(private val gameUseCase: GameUseCase) : ViewModel() {
-    fun getGameList(ordering: String): LiveData<Resource<List<GameModel>>> {
-        return gameUseCase.getGameList(ordering).asLiveData()
+    fun getGameList(sort: String): LiveData<Resource<List<GameModel>>> {
+        return gameUseCase.getGameList(sort).asLiveData()
     }
 }

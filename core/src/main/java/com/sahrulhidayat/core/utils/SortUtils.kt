@@ -4,7 +4,7 @@ import androidx.sqlite.db.SimpleSQLiteQuery
 
 object SortUtils {
     const val NEWEST = "newest"
-    const val OLDEST = "oldest"
+    const val RANDOM = "oldest"
     const val RATING = "rating"
 
     fun getSortedQueryGames(filter: String): SimpleSQLiteQuery {
@@ -13,8 +13,8 @@ object SortUtils {
             NEWEST -> {
                 simpleQuery.append("ORDER BY released DESC")
             }
-            OLDEST -> {
-                simpleQuery.append("ORDER BY released ASC")
+            RANDOM -> {
+                simpleQuery.append("ORDER BY RANDOM()")
             }
             RATING -> {
                 simpleQuery.append("ORDER BY rating DESC")

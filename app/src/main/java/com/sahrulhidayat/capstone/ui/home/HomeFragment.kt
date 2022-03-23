@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.jakewharton.rxbinding4.view.clicks
 import com.sahrulhidayat.capstone.R
 import com.sahrulhidayat.capstone.databinding.FragmentHomeBinding
 import com.sahrulhidayat.capstone.ui.detail.DetailsActivity
@@ -42,7 +43,26 @@ class HomeFragment : Fragment() {
             adapter = gameAdapter
         }
 
-        viewModel.getGameList(SortUtils.RATING).observe(requireActivity()) { games ->
+        getGameList(SortUtils.NEWEST)
+        setFabButton()
+
+        gameAdapter.onClickItem = { data ->
+            val intent = Intent(activity, DetailsActivity::class.java)
+            intent.putExtra(EXTRA_ID, data.id)
+            startActivity(intent)
+        }
+    }
+
+    private fun setFabButton() {
+        binding?.apply {
+            btnNewest.clicks().subscribe { getGameList(SortUtils.NEWEST) }
+            btnTopRated.clicks().subscribe { getGameList(SortUtils.RATING) }
+            btnRandom.clicks().subscribe { getGameList(SortUtils.RANDOM) }
+        }
+    }
+
+    private fun getGameList(sort: String) {
+        viewModel.getGameList(sort).observe(viewLifecycleOwner) { games ->
             when (games) {
                 is Resource.Loading -> showLoading(true)
                 is Resource.Success -> {
@@ -51,15 +71,9 @@ class HomeFragment : Fragment() {
                 }
                 is Resource.Error -> {
                     showLoading(false)
-                    view.showSnackbar(getString(R.string.error_loading))
+                    view?.showSnackbar(getString(R.string.error_loading))
                 }
             }
-        }
-
-        gameAdapter.onClickItem = { data ->
-            val intent = Intent(activity, DetailsActivity::class.java)
-            intent.putExtra(EXTRA_ID, data.id)
-            startActivity(intent)
         }
     }
 

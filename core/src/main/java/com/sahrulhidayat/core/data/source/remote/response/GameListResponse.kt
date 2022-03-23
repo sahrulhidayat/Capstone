@@ -20,6 +20,9 @@ data class GameResults(
     @field:SerializedName("rating")
     val rating: Double,
 
+    @field:SerializedName("released")
+    val released: String,
+
     @field:SerializedName("genres")
     val genres: List<GameGenres>,
 )

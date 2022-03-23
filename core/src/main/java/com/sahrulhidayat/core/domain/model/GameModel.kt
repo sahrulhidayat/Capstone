@@ -2,8 +2,8 @@ package com.sahrulhidayat.core.domain.model
 
 data class GameModel(
     val id: Int,
-    val name: String,
-    val background: String,
+    val name: String? = null,
+    val background: String? = null,
     val rating: Double? = null,
     val released: String? = null,
     val genres: String? = null,
