@@ -2,12 +2,14 @@ package com.sahrulhidayat.core.di
 
 import androidx.room.Room
 import com.sahrulhidayat.core.BuildConfig
+import com.sahrulhidayat.core.data.preference.SettingsPreference
 import com.sahrulhidayat.core.data.source.GameRepository
 import com.sahrulhidayat.core.data.source.local.LocalDataSource
 import com.sahrulhidayat.core.data.source.local.room.GameDatabase
 import com.sahrulhidayat.core.data.source.remote.RemoteDataSource
 import com.sahrulhidayat.core.data.source.remote.network.ApiService
-import com.sahrulhidayat.core.domain.repository.IGameRepository
+import com.sahrulhidayat.core.domain.`interface`.IGameRepository
+import com.sahrulhidayat.core.domain.`interface`.ISettingsPreference
 import com.sahrulhidayat.core.utils.AppExecutors
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -53,5 +55,8 @@ val repositoryModule = module {
     single { AppExecutors() }
     single<IGameRepository> {
         GameRepository(get(), get(), get())
+    }
+    single<ISettingsPreference> {
+        SettingsPreference(get())
     }
 }
