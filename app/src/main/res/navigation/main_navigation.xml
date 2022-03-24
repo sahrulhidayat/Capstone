@@ -21,6 +21,6 @@
         android:id="@+id/include_favorite"
         app:moduleName="favorite"
         app:graphResName="favorite_navigation"
-        app:graphPackage="com.sahrulhidayat.favorite"/>
+        app:graphPackage="${applicationId}.favorite"/>
 
 </navigation>

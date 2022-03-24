@@ -1,5 +1,6 @@
 package com.sahrulhidayat.favorite.ui
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.play.core.splitcompat.SplitCompat
 import com.sahrulhidayat.capstone.ui.MainActivity
 import com.sahrulhidayat.capstone.ui.detail.DetailsActivity
 import com.sahrulhidayat.core.ui.GameAdapter

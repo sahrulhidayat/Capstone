@@ -24,14 +24,9 @@ class MainActivity : AppCompatActivity() {
         setTheme(R.style.Theme_Capstone_NoActionBar)
         super.onCreate(savedInstanceState)
 
+        setThemeMode()
+
         val binding = ActivityMainBinding.inflate(layoutInflater)
-        settingsViewModel.getThemeSettings().observe(this) { isDarkMode ->
-            if (isDarkMode) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-            } else {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-            }
-        }
         setContentView(binding.root)
 
         setSupportActionBar(binding.appbarMain.toolbar)
@@ -58,5 +53,15 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun setThemeMode() {
+        settingsViewModel.getThemeSettings().observe(this) { isDarkMode ->
+            if (isDarkMode) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+        }
     }
 }
