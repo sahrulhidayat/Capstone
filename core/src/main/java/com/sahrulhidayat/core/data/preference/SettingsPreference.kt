@@ -8,7 +8,7 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.emptyPreferences
 import androidx.datastore.preferences.preferencesDataStore
 import com.sahrulhidayat.core.data.preference.SettingsPreference.PreferencesKeys.THEME_KEY
-import com.sahrulhidayat.core.domain.abstraction.ISettingsPreference
+import com.sahrulhidayat.core.domain.interfaces.ISettingsPreference
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map

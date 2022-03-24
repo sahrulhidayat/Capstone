@@ -8,8 +8,8 @@ import com.sahrulhidayat.core.data.source.local.LocalDataSource
 import com.sahrulhidayat.core.data.source.local.room.GameDatabase
 import com.sahrulhidayat.core.data.source.remote.RemoteDataSource
 import com.sahrulhidayat.core.data.source.remote.network.ApiService
-import com.sahrulhidayat.core.domain.abstraction.IGameRepository
-import com.sahrulhidayat.core.domain.abstraction.ISettingsPreference
+import com.sahrulhidayat.core.domain.interfaces.IGameRepository
+import com.sahrulhidayat.core.domain.interfaces.ISettingsPreference
 import com.sahrulhidayat.core.utils.AppExecutors
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

@@ -1,6 +1,6 @@
 package com.sahrulhidayat.core.domain.usecase
 
-import com.sahrulhidayat.core.domain.abstraction.ISettingsPreference
+import com.sahrulhidayat.core.domain.interfaces.ISettingsPreference
 import kotlinx.coroutines.flow.Flow
 
 class PreferenceInteractor(private val settingsPreference: ISettingsPreference): PreferenceUseCase {
