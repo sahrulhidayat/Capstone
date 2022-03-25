@@ -9,8 +9,7 @@
         android:id="@+id/nav_home"
         android:name="com.sahrulhidayat.capstone.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-    </fragment>
+        tools:layout="@layout/fragment_home"></fragment>
 
     <fragment
         android:id="@+id/nav_favorite"
@@ -19,8 +18,8 @@
 
     <include-dynamic
         android:id="@+id/include_favorite"
-        app:moduleName="favorite"
+        app:graphPackage="${applicationId}.favorite"
         app:graphResName="favorite_navigation"
-        app:graphPackage="${applicationId}.favorite"/>
+        app:moduleName="favorite" />
 
 </navigation>

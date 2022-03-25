@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import java.io.IOException
 
-class PreferenceDataStore (val context: Context) : IPreferenceDataStore {
+class PreferenceDataStore(val context: Context) : IPreferenceDataStore {
 
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 

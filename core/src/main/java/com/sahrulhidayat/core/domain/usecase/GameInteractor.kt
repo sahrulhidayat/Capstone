@@ -1,8 +1,8 @@
 package com.sahrulhidayat.core.domain.usecase
 
 import com.sahrulhidayat.core.data.source.Resource
-import com.sahrulhidayat.core.domain.model.GameModel
 import com.sahrulhidayat.core.domain.interfaces.IGameRepository
+import com.sahrulhidayat.core.domain.model.GameModel
 import kotlinx.coroutines.flow.Flow
 
 class GameInteractor(private val gameRepository: IGameRepository) : GameUseCase {

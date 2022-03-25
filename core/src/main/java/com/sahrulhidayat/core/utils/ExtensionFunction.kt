@@ -20,7 +20,7 @@ fun Context.loadImage(url: String?, imageView: ImageView) {
         .into(imageView)
 }
 
-fun View.showSnackbar( message: CharSequence): Snackbar {
+fun View.showSnackbar(message: CharSequence): Snackbar {
     return Snackbar.make(this, message, Snackbar.LENGTH_LONG)
         .apply { show() }
 }

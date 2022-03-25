@@ -14,12 +14,13 @@
 
         <TextView
             android:id="@+id/txtName"
+            style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_size_header"
             android:textStyle="bold"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@string/sample_game_title" />
@@ -32,8 +33,8 @@
             android:textSize="@dimen/text_size_xnormal"
             android:textStyle="bold"
             app:drawableEndCompat="@drawable/ic_star_16dp"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txtName"
             tools:text="5.0" />
@@ -42,8 +43,8 @@
             android:id="@+id/descriptionTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/description"
             android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/description"
             android:textSize="@dimen/text_size_small"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -53,6 +54,7 @@
 
         <TextView
             android:id="@+id/txtDescription"
+            style="@style/TextAppearance.AppCompat.Body1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_size_normal"
@@ -77,6 +79,7 @@
 
         <TextView
             android:id="@+id/txtRelease"
+            style="@style/TextAppearance.AppCompat.Body1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_size_normal"
@@ -101,9 +104,10 @@
 
         <TextView
             android:id="@+id/txtGenre"
+            style="@style/TextAppearance.AppCompat.Body1"
             android:layout_width="0dp"
-            android:textSize="@dimen/text_size_normal"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/genreTitle"
@@ -121,10 +125,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtRelease" />
+            app:layout_constraintTop_toBottomOf="@+id/txtGenre" />
 
         <TextView
             android:id="@+id/txtTags"
+            style="@style/TextAppearance.AppCompat.Subhead"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_size_normal"

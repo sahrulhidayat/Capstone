@@ -3,7 +3,10 @@ package com.sahrulhidayat.capstone
 import android.app.Application
 import com.sahrulhidayat.capstone.di.useCaseModule
 import com.sahrulhidayat.capstone.di.viewModelModule
-import com.sahrulhidayat.core.di.*
+import com.sahrulhidayat.core.di.dataStoreModule
+import com.sahrulhidayat.core.di.databaseModule
+import com.sahrulhidayat.core.di.networkModule
+import com.sahrulhidayat.core.di.repositoryModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin

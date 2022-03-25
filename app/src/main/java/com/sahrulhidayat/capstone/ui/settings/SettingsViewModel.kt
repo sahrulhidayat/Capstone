@@ -8,13 +8,13 @@ import com.sahrulhidayat.core.domain.usecase.PreferenceUseCase
 import kotlinx.coroutines.launch
 
 class SettingsViewModel(private val preferenceUseCase: PreferenceUseCase) : ViewModel() {
-     fun getThemeSettings(): LiveData<Boolean> {
-          return preferenceUseCase.getThemeSettings().asLiveData()
-     }
+    fun getThemeSettings(): LiveData<Boolean> {
+        return preferenceUseCase.getThemeSettings().asLiveData()
+    }
 
-     fun setThemeSettings(isDarkMode: Boolean)  {
-          viewModelScope.launch {
-               preferenceUseCase.saveThemeSettings(isDarkMode)
-          }
-     }
+    fun setThemeSettings(isDarkMode: Boolean) {
+        viewModelScope.launch {
+            preferenceUseCase.saveThemeSettings(isDarkMode)
+        }
+    }
 }

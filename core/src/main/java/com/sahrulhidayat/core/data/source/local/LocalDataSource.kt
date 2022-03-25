@@ -24,6 +24,7 @@ class LocalDataSource constructor(private val mGameDao: GameDao) {
         game.isFavorite = state
         mGameDao.updateDataGame(game)
     }
+
     suspend fun insertGame(game: List<GameEntity>) = mGameDao.insertDataGame(game)
 
     fun updateGame(game: GameEntity) = mGameDao.updateDataGame(game)

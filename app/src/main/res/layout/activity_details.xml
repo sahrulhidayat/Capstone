@@ -36,8 +36,8 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin"
-                android:theme="@style/Theme.Capstone.PopupOverlay"/>
+                android:theme="@style/Theme.Capstone.PopupOverlay"
+                app:layout_collapseMode="pin" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -51,9 +51,9 @@
         android:id="@+id/fabFavorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:contentDescription="@string/favorite_button"
         android:src="@drawable/ic_favorite_border"
-        android:layout_margin="16dp"
         app:layout_anchor="@id/appBarDetails"
         app:layout_anchorGravity="bottom|end" />
 
