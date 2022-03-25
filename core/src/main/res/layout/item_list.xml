@@ -69,7 +69,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txtName"
             app:layout_constraintVertical_bias="0.0"
-            tools:text="5.0" />
+            tools:text="@string/sample_rating" />
 
         <TextView
             android:id="@+id/txtGenres"
@@ -88,7 +88,7 @@
             app:layout_constraintStart_toEndOf="@+id/txtRating"
             app:layout_constraintTop_toBottomOf="@id/txtName"
             app:layout_constraintVertical_bias="0.0"
-            tools:text="Adventure, Puzzle " />
+            tools:text="@string/sample_genre" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

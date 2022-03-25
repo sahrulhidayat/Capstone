@@ -15,7 +15,7 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
+                android:background="?attr/colorPrimaryVariant"
                 app:titleTextColor="@color/white"
                 app:title="Game Explorer"
                 android:theme="@style/Theme.Capstone.PopupOverlay"/>

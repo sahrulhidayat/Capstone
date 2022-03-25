@@ -28,6 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:menu="@menu/menu_bottom_nav"
+        app:itemIconTint="@color/bottom_nav_color"
         android:elevation="8dp" />
 
 </RelativeLayout>

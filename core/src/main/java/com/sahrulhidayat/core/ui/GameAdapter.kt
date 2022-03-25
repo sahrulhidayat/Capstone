@@ -37,7 +37,8 @@ class GameAdapter : RecyclerView.Adapter<GameAdapter.GameViewHolder>() {
         return gameList.size
     }
 
-    inner class GameViewHolder(private val binding: ItemListBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class GameViewHolder(private val binding: ItemListBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(game: GameModel) {
             val context = itemView.context
             with(binding) {

@@ -3,7 +3,6 @@ package com.sahrulhidayat.core.utils
 import android.content.Context
 import android.view.View
 import android.widget.ImageView
-import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.snackbar.Snackbar

@@ -1,11 +1,9 @@
 package com.sahrulhidayat.capstone.ui.settings
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.CompoundButton
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import com.sahrulhidayat.capstone.R
-import com.sahrulhidayat.capstone.databinding.ActivityMainBinding
 import com.sahrulhidayat.capstone.databinding.ActivitySettingsBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -17,8 +15,6 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        supportActionBar?.title = getString(R.string.settings)
 
         viewModel.getThemeSettings().observe(this) { isDarkMode ->
             if (isDarkMode) {

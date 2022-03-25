@@ -7,14 +7,14 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.emptyPreferences
 import androidx.datastore.preferences.preferencesDataStore
-import com.sahrulhidayat.core.data.preference.SettingsPreference.PreferencesKeys.THEME_KEY
-import com.sahrulhidayat.core.domain.interfaces.ISettingsPreference
+import com.sahrulhidayat.core.data.preference.PreferenceDataStore.PreferencesKeys.THEME_KEY
+import com.sahrulhidayat.core.domain.interfaces.IPreferenceDataStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import java.io.IOException
 
-class SettingsPreference (val context: Context) : ISettingsPreference {
+class PreferenceDataStore (val context: Context) : IPreferenceDataStore {
 
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 

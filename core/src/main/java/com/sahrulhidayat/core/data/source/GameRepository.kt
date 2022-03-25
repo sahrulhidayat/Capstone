@@ -37,7 +37,7 @@ class GameRepository constructor(
                 val gameList = DataMapper.mapGameListResponseToEntities(data)
                 localDataSource.insertGame(gameList)
             }
-        }.asLiveData()
+        }.asFlow()
     }
 
     override fun getGameDetails(id: Int): Flow<Resource<GameModel>> {
@@ -62,7 +62,7 @@ class GameRepository constructor(
                     localDataSource.updateGame(gameDetails)
                 }
             }
-        }.asLiveData()
+        }.asFlow()
     }
 
     override fun getAllFavoriteGames(): Flow<List<GameModel>> {
