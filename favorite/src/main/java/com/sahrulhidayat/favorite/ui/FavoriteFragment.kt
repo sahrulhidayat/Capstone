@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sahrulhidayat.capstone.ui.MainActivity
 import com.sahrulhidayat.capstone.ui.detail.DetailsActivity
 import com.sahrulhidayat.core.ui.GameAdapter
+import com.sahrulhidayat.core.utils.gone
+import com.sahrulhidayat.core.utils.visible
 import com.sahrulhidayat.favorite.R
 import com.sahrulhidayat.favorite.databinding.FragmentFavoriteBinding
 import com.sahrulhidayat.favorite.di.favoriteModule
@@ -49,13 +51,32 @@ class FavoriteFragment : Fragment() {
         }
 
         viewModel.getAllFavoriteGame().observe(viewLifecycleOwner) { games ->
-            gameAdapter.setData(games)
+            if (games.isEmpty()) {
+                showNoData(true)
+            } else {
+                showNoData(false)
+                gameAdapter.setData(games)
+            }
         }
 
         gameAdapter.onClickItem = { data ->
             val intent = Intent(activity, DetailsActivity::class.java)
             intent.putExtra(DetailsActivity.EXTRA_ID, data.id)
             startActivity(intent)
+        }
+    }
+
+    private fun showNoData(isEmpty: Boolean) {
+        if (isEmpty) {
+            binding?.apply {
+                rvFavorite.gone()
+                animNoData.visible()
+            }
+        } else {
+            binding?.apply {
+                rvFavorite.visible()
+                animNoData.gone()
+            }
         }
     }
 
