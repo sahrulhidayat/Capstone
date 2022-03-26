@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.jakewharton.rxbinding4.view.clicks
 import com.sahrulhidayat.capstone.R
 import com.sahrulhidayat.capstone.databinding.FragmentHomeBinding
 import com.sahrulhidayat.capstone.ui.detail.DetailsActivity
@@ -18,7 +18,10 @@ import com.sahrulhidayat.core.utils.SortUtils
 import com.sahrulhidayat.core.utils.gone
 import com.sahrulhidayat.core.utils.showSnackbar
 import com.sahrulhidayat.core.utils.visible
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import reactivecircus.flowbinding.android.view.clicks
 
 class HomeFragment : Fragment() {
 
@@ -57,9 +60,12 @@ class HomeFragment : Fragment() {
 
     private fun setFabButton() {
         binding?.apply {
-            btnNewest.clicks().subscribe { getGameList(SortUtils.NEWEST) }
-            btnTopRated.clicks().subscribe { getGameList(SortUtils.RATING) }
-            btnRandom.clicks().subscribe { getGameList(SortUtils.RANDOM) }
+            btnNewest.clicks().onEach { getGameList(SortUtils.NEWEST) }
+                .launchIn(viewLifecycleOwner.lifecycleScope)
+            btnTopRated.clicks().onEach { getGameList(SortUtils.RATING) }
+                .launchIn(viewLifecycleOwner.lifecycleScope)
+            btnRandom.clicks().onEach { getGameList(SortUtils.RANDOM) }
+                .launchIn(viewLifecycleOwner.lifecycleScope)
         }
     }
 
@@ -75,6 +81,7 @@ class HomeFragment : Fragment() {
                     showLoading(false)
                     view?.showSnackbar(getString(R.string.error_loading))
                 }
+                else -> {}
             }
         }
     }
