@@ -10,7 +10,6 @@ import com.sahrulhidayat.core.data.source.remote.RemoteDataSource
 import com.sahrulhidayat.core.data.source.remote.network.ApiService
 import com.sahrulhidayat.core.domain.interfaces.IGameRepository
 import com.sahrulhidayat.core.domain.interfaces.IPreferenceDataStore
-import com.sahrulhidayat.core.utils.AppExecutors
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -52,9 +51,8 @@ val networkModule = module {
 val repositoryModule = module {
     single { LocalDataSource(get()) }
     single { RemoteDataSource(get()) }
-    single { AppExecutors() }
     single<IGameRepository> {
-        GameRepository(get(), get(), get())
+        GameRepository(get(), get())
     }
 }
 

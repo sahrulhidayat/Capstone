@@ -9,6 +9,5 @@
 
     <!-- Margin & padding -->
     <dimen name="margin_padding_tiny">4dp</dimen>
-    <dimen name="margin_padding_small">8dp</dimen>
     <dimen name="margin_padding_normal">16dp</dimen>
 </resources>
