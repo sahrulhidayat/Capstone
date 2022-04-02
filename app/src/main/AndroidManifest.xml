@@ -17,7 +17,7 @@
             android:theme="@style/Theme.Capstone.NoActionBar"
             android:exported="false" />
         <activity
-            android:name=".ui.detail.DetailsActivity"
+            android:name="com.sahrulhidayat.details.ui.DetailsActivity"
             android:theme="@style/Theme.Capstone.NoActionBar" />
         <activity
             android:name=".ui.MainActivity"

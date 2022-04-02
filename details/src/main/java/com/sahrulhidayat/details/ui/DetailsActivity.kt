@@ -1,4 +1,4 @@
-package com.sahrulhidayat.capstone.ui.detail
+package com.sahrulhidayat.details.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -11,7 +11,9 @@ import com.sahrulhidayat.core.utils.gone
 import com.sahrulhidayat.core.utils.loadImage
 import com.sahrulhidayat.core.utils.showSnackbar
 import com.sahrulhidayat.core.utils.visible
+import com.sahrulhidayat.details.di.detailsModule
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.context.loadKoinModules
 
 class DetailsActivity : AppCompatActivity() {
 
@@ -20,10 +22,15 @@ class DetailsActivity : AppCompatActivity() {
 
     private val viewModel by viewModel<DetailsViewModel>()
 
+    private val loadFeatures by lazy { loadKoinModules(detailsModule) }
+    private fun injectFeatures() = loadFeatures
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _activityDetailsBinding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding?.root)
+
+        injectFeatures()
 
         supportActionBar?.title = null
 

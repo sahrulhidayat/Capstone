@@ -8,10 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sahrulhidayat.capstone.ui.MainActivity
-import com.sahrulhidayat.capstone.ui.detail.DetailsActivity
 import com.sahrulhidayat.core.ui.GameAdapter
 import com.sahrulhidayat.core.utils.gone
 import com.sahrulhidayat.core.utils.visible
+import com.sahrulhidayat.details.ui.DetailsActivity
 import com.sahrulhidayat.favorite.R
 import com.sahrulhidayat.favorite.databinding.FragmentFavoriteBinding
 import com.sahrulhidayat.favorite.di.favoriteModule

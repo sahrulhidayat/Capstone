@@ -1,4 +1,4 @@
-package com.sahrulhidayat.capstone.ui.detail
+package com.sahrulhidayat.details.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

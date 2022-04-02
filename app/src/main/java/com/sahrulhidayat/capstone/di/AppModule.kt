@@ -1,6 +1,5 @@
 package com.sahrulhidayat.capstone.di
 
-import com.sahrulhidayat.capstone.ui.detail.DetailsViewModel
 import com.sahrulhidayat.capstone.ui.home.HomeViewModel
 import com.sahrulhidayat.capstone.ui.settings.SettingsViewModel
 import com.sahrulhidayat.core.domain.usecase.GameInteractor
@@ -17,6 +16,5 @@ val useCaseModule = module {
 
 val viewModelModule = module {
     viewModel { HomeViewModel(get()) }
-    viewModel { DetailsViewModel(get()) }
     viewModel { SettingsViewModel(get()) }
 }
