@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.sahrulhidayat.capstone
 
 import android.app.Application
