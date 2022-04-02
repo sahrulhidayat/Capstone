@@ -14,9 +14,11 @@ import com.sahrulhidayat.capstone.ui.detail.DetailsActivity
 import com.sahrulhidayat.capstone.ui.detail.DetailsActivity.Companion.EXTRA_ID
 import com.sahrulhidayat.core.data.source.Resource
 import com.sahrulhidayat.core.ui.GameAdapter
-import com.sahrulhidayat.core.utils.*
+import com.sahrulhidayat.core.utils.SortUtils
+import com.sahrulhidayat.core.utils.gone
+import com.sahrulhidayat.core.utils.showSnackbar
+import com.sahrulhidayat.core.utils.visible
 import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import reactivecircus.flowbinding.android.view.clicks
@@ -60,15 +62,12 @@ class HomeFragment : Fragment() {
         binding?.apply {
             btnNewest.clicks()
                 .onEach { getGameList(SortUtils.NEWEST) }
-                .map { rvHome.scrollToPosition(0) }
                 .launchIn(viewLifecycleOwner.lifecycleScope)
             btnTopRated.clicks()
                 .onEach { getGameList(SortUtils.RATING) }
-                .map { rvHome.scrollToPosition(0) }
                 .launchIn(viewLifecycleOwner.lifecycleScope)
             btnRandom.clicks()
                 .onEach { getGameList(SortUtils.RANDOM) }
-                .map { rvHome.scrollToPosition(0) }
                 .launchIn(viewLifecycleOwner.lifecycleScope)
         }
     }
@@ -80,6 +79,7 @@ class HomeFragment : Fragment() {
                 is Resource.Success -> {
                     showLoading(false)
                     gameAdapter.setData(games.data)
+                    binding?.rvHome?.scrollToPosition(0)
                 }
                 is Resource.Error -> {
                     showLoading(false)
