@@ -20,7 +20,7 @@ ext {
     espresso_version = "3.4.0"
     multidex_version = "2.0.1"
     activity_version = "1.4.0"
-    splashscreen_version = "1.0.0-beta01"
+    splashscreen_version = "1.0.0-beta02"
 
     navigation_version = "2.4.1"
 
@@ -33,6 +33,7 @@ ext {
 
     room_version = '2.4.2'
     room_runtime_version = '2.4.2'
+    datastore_version = '1.0.0'
 
     retrofit_version = '2.9.0'
     logging_version = '5.0.0-alpha.3'
