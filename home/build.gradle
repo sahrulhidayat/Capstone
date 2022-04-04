@@ -1,7 +1,6 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.dynamic-feature'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
 }
 
 apply from: '../shared_dependencies.gradle'
@@ -10,12 +9,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.sahrulhidayat.capstone"
         minSdk 21
-        targetSdk 31
-        versionCode 1
-        versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -25,24 +19,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
 
     buildFeatures {
         viewBinding true
     }
-    dynamicFeatures = [':favorite', ':details', ':settings', ':home']
 }
 
 dependencies {
+    implementation project(":app")
     implementation project(":core")
     implementation fileTree(dir: "libs", include: ["*.jar"])
-
-    implementation "androidx.core:core-splashscreen:$splashscreen_version"
 }

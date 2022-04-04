@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.widget.CompoundButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import com.sahrulhidayat.capstone.databinding.ActivitySettingsBinding
+import com.sahrulhidayat.settings.databinding.ActivitySettingsBinding
 import com.sahrulhidayat.settings.di.settingsModule
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules

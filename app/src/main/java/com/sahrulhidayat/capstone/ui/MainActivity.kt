@@ -17,7 +17,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private val settingsViewModel by viewModel<com.sahrulhidayat.settings.ui.SettingsViewModel>()
+    private val settingsViewModel by viewModel<SettingsViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()

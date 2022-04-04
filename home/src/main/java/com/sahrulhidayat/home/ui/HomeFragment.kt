@@ -1,4 +1,4 @@
-package com.sahrulhidayat.capstone.ui.home
+package com.sahrulhidayat.home.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sahrulhidayat.capstone.R
-import com.sahrulhidayat.capstone.databinding.FragmentHomeBinding
 import com.sahrulhidayat.core.data.source.Resource
 import com.sahrulhidayat.core.ui.GameAdapter
 import com.sahrulhidayat.core.utils.SortUtils
@@ -17,9 +16,12 @@ import com.sahrulhidayat.core.utils.gone
 import com.sahrulhidayat.core.utils.showSnackbar
 import com.sahrulhidayat.core.utils.visible
 import com.sahrulhidayat.details.ui.DetailsActivity
+import com.sahrulhidayat.home.databinding.FragmentHomeBinding
+import com.sahrulhidayat.home.di.homeModule
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.context.loadKoinModules
 import reactivecircus.flowbinding.android.view.clicks
 
 class HomeFragment : Fragment() {
@@ -29,6 +31,9 @@ class HomeFragment : Fragment() {
 
     private val viewModel by viewModel<HomeViewModel>()
     private val gameAdapter: GameAdapter by lazy { GameAdapter() }
+
+    private val loadFeatures by lazy { loadKoinModules(homeModule) }
+    private fun injectFeatures() = loadFeatures
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,6 +45,8 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        injectFeatures()
 
         binding?.rvHome?.apply {
             layoutManager = LinearLayoutManager(context)
