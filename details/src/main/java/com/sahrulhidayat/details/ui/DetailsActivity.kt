@@ -4,13 +4,13 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.sahrulhidayat.capstone.R
-import com.sahrulhidayat.capstone.databinding.ActivityDetailsBinding
 import com.sahrulhidayat.core.data.source.Resource
 import com.sahrulhidayat.core.domain.model.GameModel
 import com.sahrulhidayat.core.utils.gone
 import com.sahrulhidayat.core.utils.loadImage
 import com.sahrulhidayat.core.utils.showSnackbar
 import com.sahrulhidayat.core.utils.visible
+import com.sahrulhidayat.details.databinding.ActivityDetailsBinding
 import com.sahrulhidayat.details.di.detailsModule
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
