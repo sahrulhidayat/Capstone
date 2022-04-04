@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
-    package="com.sahrulhidayat.details">
+    package="com.sahrulhidayat.settings">
 
     <dist:module
         dist:instant="false"
-        dist:title="@string/title_details">
+        dist:title="@string/title_settings">
         <dist:delivery>
             <dist:install-time />
         </dist:delivery>
@@ -15,7 +15,8 @@
 
     <application android:icon="@mipmap/ic_launcher">
         <activity
-            android:name="com.sahrulhidayat.details.ui.DetailsActivity"
+            android:name="com.sahrulhidayat.settings.ui.SettingsActivity"
+            android:exported="false"
             android:theme="@style/Theme.Capstone.NoActionBar" />
     </application>
 

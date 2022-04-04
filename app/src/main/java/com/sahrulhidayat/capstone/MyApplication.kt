@@ -4,7 +4,7 @@ package com.sahrulhidayat.capstone
 
 import android.app.Application
 import com.sahrulhidayat.capstone.di.useCaseModule
-import com.sahrulhidayat.capstone.di.viewModelModule
+import com.sahrulhidayat.capstone.di.homeModule
 import com.sahrulhidayat.core.di.dataStoreModule
 import com.sahrulhidayat.core.di.databaseModule
 import com.sahrulhidayat.core.di.networkModule
@@ -27,7 +27,7 @@ class MyApplication : Application() {
                     repositoryModule,
                     dataStoreModule,
                     useCaseModule,
-                    viewModelModule
+                    homeModule
                 )
             )
         }

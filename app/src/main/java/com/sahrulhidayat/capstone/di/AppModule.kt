@@ -1,7 +1,6 @@
 package com.sahrulhidayat.capstone.di
 
 import com.sahrulhidayat.capstone.ui.home.HomeViewModel
-import com.sahrulhidayat.capstone.ui.settings.SettingsViewModel
 import com.sahrulhidayat.core.domain.usecase.GameInteractor
 import com.sahrulhidayat.core.domain.usecase.GameUseCase
 import com.sahrulhidayat.core.domain.usecase.PreferenceInteractor
@@ -14,7 +13,6 @@ val useCaseModule = module {
     factory<PreferenceUseCase> { PreferenceInteractor(get()) }
 }
 
-val viewModelModule = module {
+val homeModule = module {
     viewModel { HomeViewModel(get()) }
-    viewModel { SettingsViewModel(get()) }
 }
