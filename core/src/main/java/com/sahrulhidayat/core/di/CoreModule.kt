@@ -10,6 +10,10 @@ import com.sahrulhidayat.core.data.source.remote.RemoteDataSource
 import com.sahrulhidayat.core.data.source.remote.network.ApiService
 import com.sahrulhidayat.core.domain.interfaces.IGameRepository
 import com.sahrulhidayat.core.domain.interfaces.IPreferenceDataStore
+import com.sahrulhidayat.core.domain.usecase.GameInteractor
+import com.sahrulhidayat.core.domain.usecase.GameUseCase
+import com.sahrulhidayat.core.domain.usecase.PreferenceInteractor
+import com.sahrulhidayat.core.domain.usecase.PreferenceUseCase
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -26,6 +30,12 @@ val databaseModule = module {
             androidContext(),
             GameDatabase::class.java, "game_entities"
         ).fallbackToDestructiveMigration().build()
+    }
+}
+
+val dataStoreModule = module {
+    single<IPreferenceDataStore> {
+        PreferenceDataStore(androidContext())
     }
 }
 
@@ -56,10 +66,7 @@ val repositoryModule = module {
     }
 }
 
-val dataStoreModule = module {
-    factory { }
-
-    single<IPreferenceDataStore> {
-        PreferenceDataStore(androidContext())
-    }
+val useCaseModule = module {
+    factory<GameUseCase> { GameInteractor(get()) }
+    factory<PreferenceUseCase> { PreferenceInteractor(get()) }
 }

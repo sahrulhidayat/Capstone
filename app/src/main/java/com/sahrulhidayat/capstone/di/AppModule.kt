@@ -1,12 +1,9 @@
 package com.sahrulhidayat.capstone.di
 
-import com.sahrulhidayat.core.domain.usecase.GameInteractor
-import com.sahrulhidayat.core.domain.usecase.GameUseCase
-import com.sahrulhidayat.core.domain.usecase.PreferenceInteractor
-import com.sahrulhidayat.core.domain.usecase.PreferenceUseCase
+import com.sahrulhidayat.capstone.ui.MainViewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
-val useCaseModule = module {
-    factory<GameUseCase> { GameInteractor(get()) }
-    factory<PreferenceUseCase> { PreferenceInteractor(get()) }
+val appModule = module {
+    viewModel { MainViewModel(get()) }
 }

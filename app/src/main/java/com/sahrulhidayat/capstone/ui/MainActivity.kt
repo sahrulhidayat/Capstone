@@ -11,13 +11,11 @@ import androidx.navigation.dynamicfeatures.fragment.DynamicNavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.sahrulhidayat.capstone.R
 import com.sahrulhidayat.capstone.databinding.ActivityMainBinding
-import com.sahrulhidayat.settings.ui.SettingsActivity
-import com.sahrulhidayat.settings.ui.SettingsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private val settingsViewModel by viewModel<SettingsViewModel>()
+    private val settingsViewModel by viewModel<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
@@ -48,7 +46,11 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.settings -> {
-                val intent = Intent(this, com.sahrulhidayat.settings.ui.SettingsActivity::class.java)
+                val intent = Intent()
+                intent.setClassName(
+                    this,
+                    "com.sahrulhidayat.settings.ui.SettingsActivity"
+                )
                 startActivity(intent)
             }
         }
