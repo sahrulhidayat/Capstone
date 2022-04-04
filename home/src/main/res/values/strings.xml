@@ -1,0 +1,4 @@
+<resources>
+    <string name="title_home">Home</string>
+    <string name="error_loading">Error loading content</string>
+</resources>

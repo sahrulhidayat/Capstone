@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.sahrulhidayat.capstone.R
+import com.sahrulhidayat.capstone.ui.MainActivity
 import com.sahrulhidayat.core.data.source.Resource
 import com.sahrulhidayat.core.ui.GameAdapter
 import com.sahrulhidayat.core.utils.SortUtils
@@ -16,6 +16,7 @@ import com.sahrulhidayat.core.utils.gone
 import com.sahrulhidayat.core.utils.showSnackbar
 import com.sahrulhidayat.core.utils.visible
 import com.sahrulhidayat.details.ui.DetailsActivity
+import com.sahrulhidayat.home.R
 import com.sahrulhidayat.home.databinding.FragmentHomeBinding
 import com.sahrulhidayat.home.di.homeModule
 import kotlinx.coroutines.flow.launchIn
@@ -47,6 +48,8 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         injectFeatures()
+
+        (activity as MainActivity).supportActionBar?.title = getString(R.string.title_home)
 
         binding?.rvHome?.apply {
             layoutManager = LinearLayoutManager(context)
