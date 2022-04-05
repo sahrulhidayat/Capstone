@@ -36,6 +36,11 @@ class HomeFragment : Fragment() {
     private val loadFeatures by lazy { loadKoinModules(homeModule) }
     private fun injectFeatures() = loadFeatures
 
+    override fun onStart() {
+        super.onStart()
+        binding?.rvHome?.adapter = gameAdapter
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -54,7 +59,6 @@ class HomeFragment : Fragment() {
         binding?.rvHome?.apply {
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
-            adapter = gameAdapter
         }
 
         getGameList(SortUtils.NEWEST)
@@ -102,6 +106,11 @@ class HomeFragment : Fragment() {
     private fun showLoading(state: Boolean) {
         if (state) binding?.progressBar?.visible()
         else binding?.progressBar?.gone()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        binding?.rvHome?.adapter = null
     }
 
     override fun onDestroyView() {
