@@ -15,7 +15,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private val mainViewModel by viewModel<MainViewModel>()
+    private val settingsViewModel by viewModel<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setThemeMode()
+
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -57,7 +58,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setThemeMode() {
-        mainViewModel.getThemeSettings().observe(this) { isDarkMode ->
+        settingsViewModel.getThemeSettings().observe(this) { isDarkMode ->
             if (isDarkMode) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             } else {
