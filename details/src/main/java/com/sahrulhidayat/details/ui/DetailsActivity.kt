@@ -2,12 +2,13 @@ package com.sahrulhidayat.details.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
+import com.google.android.material.snackbar.Snackbar
 import com.sahrulhidayat.core.data.source.Resource
 import com.sahrulhidayat.core.domain.model.GameModel
 import com.sahrulhidayat.core.utils.gone
 import com.sahrulhidayat.core.utils.loadImage
-import com.sahrulhidayat.core.utils.showSnackbar
 import com.sahrulhidayat.core.utils.visible
 import com.sahrulhidayat.details.R
 import com.sahrulhidayat.details.databinding.ActivityDetailsBinding
@@ -24,6 +25,8 @@ class DetailsActivity : AppCompatActivity() {
 
     private val loadFeatures by lazy { loadKoinModules(detailsModule) }
     private fun injectFeatures() = loadFeatures
+
+    private var snackbar: Snackbar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +48,11 @@ class DetailsActivity : AppCompatActivity() {
                 }
                 is Resource.Error -> {
                     showLoading(false)
-                    binding?.root?.showSnackbar(getString(R.string.error_loading))
+                    snackbar = Snackbar.make(
+                        CoordinatorLayout(this),
+                        R.string.error_loading,
+                        Snackbar.LENGTH_LONG
+                    )
                 }
             }
         }
@@ -94,6 +101,11 @@ class DetailsActivity : AppCompatActivity() {
     private fun showLoading(state: Boolean) {
         if (state) binding?.progressBar?.visible()
         else binding?.progressBar?.gone()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        snackbar?.dismiss()
     }
 
     override fun onDestroy() {

@@ -5,7 +5,6 @@ import android.view.View
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.google.android.material.snackbar.Snackbar
 import com.sahrulhidayat.core.R
 
 fun Context.loadImage(url: String?, imageView: ImageView) {
@@ -18,11 +17,6 @@ fun Context.loadImage(url: String?, imageView: ImageView) {
         )
         .centerCrop()
         .into(imageView)
-}
-
-fun View.showSnackbar(message: CharSequence): Snackbar {
-    return Snackbar.make(this, message, Snackbar.LENGTH_LONG)
-        .apply { show() }
 }
 
 fun View.visible() {

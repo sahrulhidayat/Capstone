@@ -8,12 +8,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.sahrulhidayat.capstone.ui.MainActivity
 import com.sahrulhidayat.core.data.source.Resource
 import com.sahrulhidayat.core.ui.GameAdapter
 import com.sahrulhidayat.core.utils.SortUtils
 import com.sahrulhidayat.core.utils.gone
-import com.sahrulhidayat.core.utils.showSnackbar
 import com.sahrulhidayat.core.utils.visible
 import com.sahrulhidayat.details.ui.DetailsActivity
 import com.sahrulhidayat.home.R
@@ -36,6 +36,13 @@ class HomeFragment : Fragment() {
     private val loadFeatures by lazy { loadKoinModules(homeModule) }
     private fun injectFeatures() = loadFeatures
 
+    private var snackbar: Snackbar? = null
+
+    override fun onStart() {
+        super.onStart()
+        binding?.rvHome?.adapter = gameAdapter
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -54,7 +61,6 @@ class HomeFragment : Fragment() {
         binding?.rvHome?.apply {
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
-            adapter = gameAdapter
         }
 
         getGameList(SortUtils.NEWEST)
@@ -92,7 +98,7 @@ class HomeFragment : Fragment() {
                 }
                 is Resource.Error -> {
                     showLoading(false)
-                    view?.showSnackbar(getString(R.string.error_loading))
+                    snackbar = Snackbar.make(requireView(), R.string.error_loading, Snackbar.LENGTH_LONG)
                 }
                 else -> {}
             }
@@ -102,6 +108,12 @@ class HomeFragment : Fragment() {
     private fun showLoading(state: Boolean) {
         if (state) binding?.progressBar?.visible()
         else binding?.progressBar?.gone()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        snackbar?.dismiss()
+        binding?.rvHome?.adapter = null
     }
 
     override fun onDestroyView() {
