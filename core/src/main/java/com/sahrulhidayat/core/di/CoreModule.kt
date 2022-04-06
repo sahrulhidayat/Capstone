@@ -14,6 +14,8 @@ import com.sahrulhidayat.core.domain.usecase.GameInteractor
 import com.sahrulhidayat.core.domain.usecase.GameUseCase
 import com.sahrulhidayat.core.domain.usecase.PreferenceInteractor
 import com.sahrulhidayat.core.domain.usecase.PreferenceUseCase
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -26,10 +28,15 @@ val databaseModule = module {
     factory { get<GameDatabase>().gameDao() }
 
     single {
+        val passphrase: ByteArray = SQLiteDatabase.getBytes("sahrulhidayat".toCharArray())
+        val factory = SupportFactory(passphrase)
+
         Room.databaseBuilder(
             androidContext(),
             GameDatabase::class.java, "game_entities"
-        ).fallbackToDestructiveMigration().build()
+        ).fallbackToDestructiveMigration()
+            .openHelperFactory(factory)
+            .build()
     }
 }
 
