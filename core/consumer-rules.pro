@@ -108,3 +108,12 @@
 }
 
 ##---------------End: proguard configuration for Preference Datastore  ----------
+
+##---------------Begin: proguard configuration for LeakCanary ----------
+-keep class org.eclipse.mat.** { *; }
+-keep class com.squareup.leakcanary.** { *; }
+
+##---------------End: proguard configuration for LeakCanary ----------
+
+##------------Uncomment For Debugging Only -----------
+-keepnames class **
