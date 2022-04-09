@@ -6,8 +6,6 @@ orbs:
 jobs:
   build:
     executor: android/android
-    docker:
-    - image: cimg/base:2022.03
     steps:
       - checkout
       - restore_cache:
