@@ -116,4 +116,4 @@
 ##---------------End: proguard configuration for LeakCanary ----------
 
 ##------------Uncomment For Debugging Only -----------
--keepnames class ** { *; }
+#-keepnames class ** { *; }
