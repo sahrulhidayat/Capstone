@@ -72,7 +72,7 @@ jobs:
           destination: artifact-file
 
       - codecov/upload:
-          file: app/build/test-result/jest/result.xml
-                favorite/build/test-result/jest/result.xml
-                details/build/test-result/jest/result.xml
-                settings/build/test-result/jest/result.xml
+          file: app/build/test-result/jest/results.xml
+                favorite/build/test-result/jest/results.xml
+                details/build/test-result/jest/results.xml
+                settings/build/test-result/jest/results.xml
