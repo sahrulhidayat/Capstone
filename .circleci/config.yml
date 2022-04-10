@@ -58,6 +58,42 @@ jobs:
           paths:
             - ~/.android/build-cache
             - ~/.android/cache
+#       app module test
+      - run:
+          name: Run App Module Unit Test
+          command: ./gradlew :app:testDebugUnitTest
+      - store_artifacts: 
+          path: app/build/reports
+      - store_test_results:  
+          path: app/build/test-result
+#       favorite module test
+      - run:
+          name: Run Favorite Module Unit Test
+          command: ./gradlew :favorite:testDebugUnitTest
+      - store_artifacts: 
+          path: favorite/build/reports
+      - store_test_results:  
+          path: favorite/build/test-result
+#       details module test
+      - run:
+          name: Run App Module Unit Test
+          command: ./gradlew :details:testDebugUnitTest
+      - store_artifacts: 
+          path: details/build/reports
+      - store_test_results:  
+          path: details/build/test-result
+#       settings module test
+      - run:
+          name: Run Settings Module Unit Test
+          command: ./gradlew :settings:testDebugUnitTest
+      - store_artifacts: 
+          path: settings/build/reports
+      - store_test_results:  
+          path: settings/build/test-result
+#       build apk
+      - run:
+          name: Lint Test
+          command: ./gradlew lint
       - run:
           name: Run Build
           command: ./gradlew build
@@ -67,3 +103,9 @@ jobs:
       - store_artifacts:  
           path: app/build/outputs/apk/debug/
           destination: artifact-file
+
+      - codecov/upload:
+          file: app/build/test-result.xml
+                favorite/build/test-result.xml
+                details/build/test-result.xml
+                settings/build/test-result.xml
