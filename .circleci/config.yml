@@ -13,8 +13,12 @@ jobs:
       - checkout
       - android/restore-gradle-cache
       - android/restore-build-cache
+      - run:
+          name: Chmod permissions
+          command: sudo chmod +x ./gradlew
       - android/run-tests:
-          test-command: ./gradlew :home:testDebug
+          test-command: ./gradlew :app:testDebug
+                        ./gradlew :home:testDebug
                         ./gradlew :favorite:testDebug
                         ./gradlew :details:testDebug
                         ./gradlew :settings:testDebug
