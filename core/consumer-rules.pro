@@ -110,9 +110,10 @@
 ##---------------End: proguard configuration for Preference Datastore  ----------
 
 ##---------------Begin: proguard configuration for LeakCanary ----------
+# LeakCanary temporary issue, see: https://github.com/square/leakcanary/issues/2286
 -keep class androidx.appcompat.view.WindowCallbackWrapper { *; }
 
 ##---------------End: proguard configuration for LeakCanary ----------
 
-##------------Uncomment For Debugging Only -----------
+## Uncomment Below For Debugging Only ##
 #-keepnames class **
