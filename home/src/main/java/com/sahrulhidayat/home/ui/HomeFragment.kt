@@ -86,7 +86,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun getGameList(sort: String) {
-        viewModel.getGameList(sort).observe(viewLifecycleOwner) { games ->
+        viewModel.setSort(sort)
+        viewModel.gameList.observe(viewLifecycleOwner) { games ->
             when (games) {
                 is Resource.Loading -> showLoading(true)
                 is Resource.Success -> {

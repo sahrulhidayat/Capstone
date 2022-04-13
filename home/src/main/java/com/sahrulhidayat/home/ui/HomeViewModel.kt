@@ -6,9 +6,25 @@ import androidx.lifecycle.asLiveData
 import com.sahrulhidayat.core.data.source.Resource
 import com.sahrulhidayat.core.domain.model.GameModel
 import com.sahrulhidayat.core.domain.usecase.GameUseCase
+import com.sahrulhidayat.core.utils.DispatcherProvider
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOn
 
-class HomeViewModel(private val gameUseCase: GameUseCase) : ViewModel() {
-    fun getGameList(sort: String): LiveData<Resource<List<GameModel>>> {
-        return gameUseCase.getGameList(sort).asLiveData()
+class HomeViewModel(
+    private val dispatchers: DispatcherProvider,
+    private val gameUseCase: GameUseCase
+) : ViewModel() {
+
+    private var mSort = ""
+
+    fun getGameList(sort: String): Flow<Resource<List<GameModel>>> {
+       return gameUseCase.getGameList(sort).flowOn(dispatchers.main)
     }
+
+    fun setSort(sort: String) {
+        mSort = sort
+    }
+
+    val gameList: LiveData<Resource<List<GameModel>>> = getGameList(mSort).asLiveData()
+
 }
