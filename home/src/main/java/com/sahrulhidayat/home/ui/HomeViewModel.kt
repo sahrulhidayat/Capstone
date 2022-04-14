@@ -11,14 +11,14 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
 
 class HomeViewModel(
-    private val MainDispatcher: CoroutineDispatcher,
+    private val mainDispatcher: CoroutineDispatcher,
     private val gameUseCase: GameUseCase
 ) : ViewModel() {
 
     private var mSort = ""
 
     fun getGameList(sort: String): Flow<Resource<List<GameModel>>> {
-       return gameUseCase.getGameList(sort).flowOn(MainDispatcher)
+       return gameUseCase.getGameList(sort).flowOn(mainDispatcher)
     }
 
     fun setSort(sort: String) {

@@ -23,12 +23,12 @@ class HomeViewModelTest {
     private lateinit var viewModel: HomeViewModel
     private val sort = SortUtils.NEWEST
 
-    private val game = mock<List<GameModel>> {
+    private val gameList = mock<List<GameModel>> {
         on { size } doReturn(2)
     }
 
     private val dummyFlow = flow {
-        emit(Resource.Success(game))
+        emit(Resource.Success(gameList))
     }
 
     private val gameUseCase = mock<GameUseCase> {
