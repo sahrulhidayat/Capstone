@@ -2,7 +2,7 @@ package com.sahrulhidayat.core.di
 
 import androidx.room.Room
 import com.appmattus.certificatetransparency.certificateTransparencyInterceptor
-import com.sahrulhidayat.core.BuildConfig.BASE_URL
+import com.sahrulhidayat.core.BuildConfig.*
 import com.sahrulhidayat.core.data.preference.PreferenceDataStore
 import com.sahrulhidayat.core.data.source.GameRepository
 import com.sahrulhidayat.core.data.source.local.LocalDataSource
@@ -50,15 +50,14 @@ val dataStoreModule = module {
 
 val networkModule = module {
     single {
-        val hostname = "api.rawg.io"
         val certificatePinner = CertificatePinner.Builder()
-            .add(hostname, "sha256/RI9CUmPUOpUk2vdVMSZDWj+wtoQO5k9MSCSM9w4grmU=")
-            .add(hostname, "sha256/FEzVOUp4dF3gI0ZVPRJhFbSJVXR+uQmMH65xhs1glH4=")
-            .add(hostname, "sha256/Y9mvm0exBk1JoQ57f9Vm28jKo5lFm/woKcVxrYxu80o=")
+            .add(HOST_NAME, SHA_1)
+            .add(HOST_NAME, SHA_2)
+            .add(HOST_NAME, SHA_3)
             .build()
 
         OkHttpClient.Builder()
-            .addInterceptor(certificateTransparencyInterceptor())
+            .addNetworkInterceptor(certificateTransparencyInterceptor())
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
             .connectTimeout(120, TimeUnit.SECONDS)
             .readTimeout(120, TimeUnit.SECONDS)
