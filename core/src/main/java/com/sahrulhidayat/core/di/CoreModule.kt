@@ -1,7 +1,8 @@
 package com.sahrulhidayat.core.di
 
 import androidx.room.Room
-import com.sahrulhidayat.core.BuildConfig
+import com.appmattus.certificatetransparency.certificateTransparencyInterceptor
+import com.sahrulhidayat.core.BuildConfig.BASE_URL
 import com.sahrulhidayat.core.data.preference.PreferenceDataStore
 import com.sahrulhidayat.core.data.source.GameRepository
 import com.sahrulhidayat.core.data.source.local.LocalDataSource
@@ -57,6 +58,7 @@ val networkModule = module {
             .build()
 
         OkHttpClient.Builder()
+            .addInterceptor(certificateTransparencyInterceptor())
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
             .connectTimeout(120, TimeUnit.SECONDS)
             .readTimeout(120, TimeUnit.SECONDS)
@@ -66,7 +68,7 @@ val networkModule = module {
 
     single {
         val retrofit = Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL)
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(get())
             .build()

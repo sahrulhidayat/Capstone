@@ -69,4 +69,7 @@ dependencies {
     //database encryption
     implementation "net.zetetic:android-database-sqlcipher:$sqlcipher_version"
     implementation "androidx.sqlite:sqlite:$sqlite_version"
+
+    //certificate transparency
+    implementation "com.appmattus.certificatetransparency:certificatetransparency-android:1.1.0"
 }
