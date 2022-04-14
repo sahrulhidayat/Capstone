@@ -6,10 +6,11 @@ import com.sahrulhidayat.core.data.source.Resource
 import com.sahrulhidayat.core.domain.model.GameModel
 import com.sahrulhidayat.core.domain.usecase.GameUseCase
 import com.sahrulhidayat.core.utils.SortUtils
-import com.sahrulhidayat.home.utils.TestDispatchers
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import org.junit.Before
 import org.junit.Test
 import org.mockito.kotlin.doReturn
@@ -18,7 +19,7 @@ import org.mockito.kotlin.mock
 @ExperimentalCoroutinesApi
 class HomeViewModelTest {
 
-    private lateinit var testDispatchers: TestDispatchers
+    private lateinit var testDispatchers: CoroutineDispatcher
     private lateinit var viewModel: HomeViewModel
     private val sort = SortUtils.NEWEST
 
@@ -36,7 +37,7 @@ class HomeViewModelTest {
 
     @Before
     fun setUp() {
-        testDispatchers = TestDispatchers()
+        testDispatchers = UnconfinedTestDispatcher()
         viewModel = HomeViewModel(testDispatchers, gameUseCase)
     }
 
