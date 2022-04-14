@@ -12,7 +12,6 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import org.junit.Before
 import org.junit.Test
-import org.mockito.kotlin.doAnswer
 import org.mockito.kotlin.doReturn
 import org.mockito.kotlin.mock
 
@@ -27,18 +26,12 @@ class DetailsViewModelTest {
         on { id } doReturn(dummyId)
     }
 
-    private val favoriteGame = mock<GameModel> {
-        on { id } doReturn(dummyId)
-        on { isFavorite } doReturn(true)
-    }
-
     private val dummyFlow = flow {
         emit(Resource.Success(game))
     }
 
     private val gameUseCase = mock<GameUseCase> {
         on { getGameDetails(dummyId) } doReturn(dummyFlow)
-        on { setFavoriteGame(favoriteGame, true) } doAnswer {}
     }
 
     @Before
@@ -48,20 +41,12 @@ class DetailsViewModelTest {
     }
 
     @Test
-    fun getGameDetails() = runBlocking {
+    fun `getGameDetailsFlow(), should return correct flow`() = runBlocking {
         viewModel.getGameDetailsFlow(dummyId).test {
             val item = awaitItem()
             assertThat(item).isNotNull()
             assertThat(item.data?.id).isEqualTo(dummyId)
             cancelAndConsumeRemainingEvents()
         }
-    }
-
-    @Test
-    fun setFavoriteGame() {
-        viewModel.setFavoriteGame(game, true)
-        assertThat(game).isNotNull()
-        assertThat(game.id).isEqualTo(dummyId)
-        assertThat(game.isFavorite).isEqualTo(true)
     }
 }

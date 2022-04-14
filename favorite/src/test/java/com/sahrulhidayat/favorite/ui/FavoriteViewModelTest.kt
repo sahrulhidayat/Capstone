@@ -39,7 +39,7 @@ class FavoriteViewModelTest {
     }
 
     @Test
-    fun getAllFavoriteGame() = runBlocking {
+    fun `getAllFavoriteGame(), should return correct flow`() = runBlocking {
         viewModel.getAllFavoriteGame().test {
             val item = awaitItem()
             assertThat(item).isNotNull()
