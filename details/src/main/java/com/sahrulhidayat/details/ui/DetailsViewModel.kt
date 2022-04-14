@@ -15,14 +15,9 @@ class DetailsViewModel(
     private val gameUseCase: GameUseCase
 ) : ViewModel() {
 
-    private var mId = 0
-    fun setId(id: Int) {
-        mId = id
-    }
+    fun getGameDetails(id: Int): LiveData<Resource<GameModel>> = getGameDetailsFlow(id).asLiveData()
 
-    val gameDetails: LiveData<Resource<GameModel>> = getGameDetails(mId).asLiveData()
-
-    fun getGameDetails(id: Int): Flow<Resource<GameModel>> {
+    fun getGameDetailsFlow(id: Int): Flow<Resource<GameModel>> {
         return gameUseCase.getGameDetails(id).flowOn(mainDispatcher)
     }
 

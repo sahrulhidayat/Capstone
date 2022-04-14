@@ -43,7 +43,7 @@ class HomeViewModelTest {
 
     @Test
     fun getGameList() = runBlocking {
-        viewModel.getGameList(sort).test {
+        viewModel.getGameListFlow(sort).test {
             val item = awaitItem()
             assertThat(item).isNotNull()
             assertThat(item.data?.size).isEqualTo(2)

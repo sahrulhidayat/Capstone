@@ -15,15 +15,11 @@ class HomeViewModel(
     private val gameUseCase: GameUseCase
 ) : ViewModel() {
 
-    private var mSort = ""
-    fun setSort(sort: String) {
-        mSort = sort
-    }
+    fun getGameList(sort: String): LiveData<Resource<List<GameModel>>> =
+        getGameListFlow(sort).asLiveData()
 
-    val gameList: LiveData<Resource<List<GameModel>>> = getGameList(mSort).asLiveData()
-
-    fun getGameList(sort: String): Flow<Resource<List<GameModel>>> {
-       return gameUseCase.getGameList(sort).flowOn(mainDispatcher)
+    fun getGameListFlow(sort: String): Flow<Resource<List<GameModel>>> {
+        return gameUseCase.getGameList(sort).flowOn(mainDispatcher)
     }
 
 }

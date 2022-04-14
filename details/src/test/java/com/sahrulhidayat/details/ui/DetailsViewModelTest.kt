@@ -12,6 +12,7 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import org.junit.Before
 import org.junit.Test
+import org.mockito.kotlin.doAnswer
 import org.mockito.kotlin.doReturn
 import org.mockito.kotlin.mock
 
@@ -37,7 +38,7 @@ class DetailsViewModelTest {
 
     private val gameUseCase = mock<GameUseCase> {
         on { getGameDetails(dummyId) } doReturn(dummyFlow)
-        on { setFavoriteGame(favoriteGame, true) } doReturn()
+        on { setFavoriteGame(favoriteGame, true) } doAnswer {}
     }
 
     @Before
@@ -48,7 +49,7 @@ class DetailsViewModelTest {
 
     @Test
     fun getGameDetails() = runBlocking {
-        viewModel.getGameDetails(dummyId).test {
+        viewModel.getGameDetailsFlow(dummyId).test {
             val item = awaitItem()
             assertThat(item).isNotNull()
             assertThat(item.data?.id).isEqualTo(dummyId)
@@ -61,6 +62,6 @@ class DetailsViewModelTest {
         viewModel.setFavoriteGame(game, true)
         assertThat(game).isNotNull()
         assertThat(game.id).isEqualTo(dummyId)
-        assertThat(item.isFavorite).isEqualTo(true)
+        assertThat(game.isFavorite).isEqualTo(true)
     }
 }
