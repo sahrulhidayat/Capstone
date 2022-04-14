@@ -13,9 +13,10 @@ class FavoriteViewModel(
     private val mainDispatcher: CoroutineDispatcher,
     private val gameUseCase: GameUseCase
 ) : ViewModel() {
+
+    val favoriteGames: LiveData<List<GameModel>> = getAllFavoriteGame().asLiveData()
+
     fun getAllFavoriteGame(): Flow<List<GameModel>> {
         return gameUseCase.getAllFavoriteGames().flowOn(mainDispatcher)
     }
-
-    val favoriteGames: LiveData<List<GameModel>> = getAllFavoriteGame().asLiveData()
 }

@@ -16,15 +16,14 @@ class HomeViewModel(
 ) : ViewModel() {
 
     private var mSort = ""
-
-    fun getGameList(sort: String): Flow<Resource<List<GameModel>>> {
-       return gameUseCase.getGameList(sort).flowOn(mainDispatcher)
-    }
-
     fun setSort(sort: String) {
         mSort = sort
     }
 
     val gameList: LiveData<Resource<List<GameModel>>> = getGameList(mSort).asLiveData()
+
+    fun getGameList(sort: String): Flow<Resource<List<GameModel>>> {
+       return gameUseCase.getGameList(sort).flowOn(mainDispatcher)
+    }
 
 }
