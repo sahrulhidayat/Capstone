@@ -36,7 +36,8 @@ class DetailsActivity : AppCompatActivity() {
 
         val gameId = intent.getIntExtra(EXTRA_ID, 0)
 
-        viewModel.getGameDetails(gameId).observe(this) { gameDetails ->
+        viewModel.setId(gameId)
+        viewModel.gameDetails.observe(this) { gameDetails ->
             when (gameDetails) {
                 is Resource.Loading -> showLoading(true)
                 is Resource.Success -> {
