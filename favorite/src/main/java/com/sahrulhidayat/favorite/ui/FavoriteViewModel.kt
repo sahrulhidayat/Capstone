@@ -5,9 +5,17 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.sahrulhidayat.core.domain.model.GameModel
 import com.sahrulhidayat.core.domain.usecase.GameUseCase
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOn
 
-class FavoriteViewModel(private val gameUseCase: GameUseCase) : ViewModel() {
-    fun getAllFavoriteGame(): LiveData<List<GameModel>> {
-        return gameUseCase.getAllFavoriteGames().asLiveData()
+class FavoriteViewModel(
+    private val mainDispatcher: CoroutineDispatcher,
+    private val gameUseCase: GameUseCase
+) : ViewModel() {
+    fun getAllFavoriteGame(): Flow<List<GameModel>> {
+        return gameUseCase.getAllFavoriteGames().flowOn(mainDispatcher)
     }
+
+    val favoriteGames: LiveData<List<GameModel>> = getAllFavoriteGame().asLiveData()
 }

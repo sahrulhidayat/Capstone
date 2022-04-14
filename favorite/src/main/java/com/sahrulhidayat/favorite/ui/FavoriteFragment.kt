@@ -50,7 +50,7 @@ class FavoriteFragment : Fragment() {
             adapter = gameAdapter
         }
 
-        viewModel.getAllFavoriteGame().observe(viewLifecycleOwner) { games ->
+        viewModel.favoriteGames.observe(viewLifecycleOwner) { games ->
             if (games.isEmpty()) {
                 showNoData(true)
             } else {
