@@ -15,6 +15,7 @@ import com.sahrulhidayat.core.domain.usecase.GameInteractor
 import com.sahrulhidayat.core.domain.usecase.GameUseCase
 import com.sahrulhidayat.core.domain.usecase.PreferenceInteractor
 import com.sahrulhidayat.core.domain.usecase.PreferenceUseCase
+import com.sahrulhidayat.core.utils.DispatcherProvider
 import net.sqlcipher.database.SQLiteDatabase
 import net.sqlcipher.database.SupportFactory
 import okhttp3.CertificatePinner
@@ -79,7 +80,7 @@ val repositoryModule = module {
     single { LocalDataSource(get()) }
     single { RemoteDataSource(get()) }
     single<IGameRepository> {
-        GameRepository(get(), get())
+        GameRepository(get(), get(), DispatcherProvider.io())
     }
 }
 

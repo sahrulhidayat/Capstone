@@ -8,15 +8,16 @@ import com.sahrulhidayat.core.data.source.remote.response.GameResults
 import com.sahrulhidayat.core.domain.interfaces.IGameRepository
 import com.sahrulhidayat.core.domain.model.GameModel
 import com.sahrulhidayat.core.utils.DataMapper
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
 class GameRepository(
     private val remoteDataSource: RemoteDataSource,
-    private val localDataSource: LocalDataSource
+    private val localDataSource: LocalDataSource,
+    private val ioDispatcher: CoroutineDispatcher
 ) : IGameRepository {
     override fun getGameList(sort: String): Flow<Resource<List<GameModel>>> {
         return object : NetworkBoundResource<List<GameModel>, List<GameResults>>() {
@@ -59,7 +60,7 @@ class GameRepository(
 
             override suspend fun saveCallResult(data: GameDetailsResponse) {
                 val gameDetails = DataMapper.mapGameDetailsResponseToEntities(data)
-                CoroutineScope(Dispatchers.IO).launch {
+                CoroutineScope(ioDispatcher).launch {
                     localDataSource.updateGame(gameDetails)
                 }
             }
@@ -74,7 +75,7 @@ class GameRepository(
 
     override fun setFavoriteGame(game: GameModel, state: Boolean) {
         val gameEntity = DataMapper.mapDomainToEntity(game)
-        CoroutineScope(Dispatchers.IO).launch {
+        CoroutineScope(ioDispatcher).launch {
             localDataSource.setFavoriteGame(gameEntity, state)
         }
     }

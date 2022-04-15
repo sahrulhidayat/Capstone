@@ -5,4 +5,5 @@ import kotlinx.coroutines.Dispatchers
 
 object DispatcherProvider {
     fun main(): CoroutineDispatcher = Dispatchers.Main
+    fun io(): CoroutineDispatcher = Dispatchers.IO
 }
