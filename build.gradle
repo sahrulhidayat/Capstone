@@ -22,15 +22,6 @@ kover {
     runAllTestsForProjectTask = true
 }
 
-tasks.koverVerify {
-    includes = ['com.sahrulhidayat.capstone.ui.MainViewModel']
-    includes = ['com.sahrulhidayat.core.data.source.GameRepository']
-    includes = ['com.sahrulhidayat.details.ui.DetailsViewModel']
-    includes = ['com.sahrulhidayat.favorite.ui.FavoriteViewModel']
-    includes = ['com.sahrulhidayat.home.ui.HomeViewModel']
-    includes = ['com.sahrulhidayat.settings.ui.SettingsViewModel']
-}
-
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
