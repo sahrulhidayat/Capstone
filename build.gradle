@@ -26,14 +26,14 @@ tasks.koverMergedHtmlReport {
     enabled = true
     htmlReportDir.set(layout.buildDirectory.dir("merged-report/html-result"))
 
-    includes = ['com.sahrulhidayat.capstone.*']
+    includes = ['com.sahrulhidayat.*']
 }
 
 tasks.koverMergedXmlReport {
     enabled = true
     xmlReportFile.set(layout.buildDirectory.file("merged-report/result.xml"))
 
-    includes = ['com.sahrulhidayat.capstone.*']
+    includes = ['com.sahrulhidayat.*']
 }
 
 task clean(type: Delete) {
