@@ -29,7 +29,7 @@ jobs:
           name: Jacoco Test Report
           command: ./gradlew jacocoTestReport
       - codecov/upload:
-          file: app/build/reports/jacoco
+          file: app/build/reports/jacoco/
       - run:
           name: Run Build
           command: ./gradlew build
