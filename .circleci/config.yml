@@ -26,10 +26,10 @@ jobs:
             - ~/.android/build-cache
             - ~/.android/cache
       - run:
-          name: Jacoco Test Report
-          command: ./gradlew jacocoTestReport
+          name: Kover Report Test
+          command: ./gradlew koverReport
       - codecov/upload:
-          file: app/build/reports/jacoco/
+          file: app/build/merged-report/result.xml
       - run:
           name: Run Build
           command: ./gradlew build
