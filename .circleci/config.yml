@@ -27,9 +27,9 @@ jobs:
             - ~/.android/cache
       - run:
           name: Kover Report Test
-          command: ./gradlew koverReport
+          command: ./gradlew koverMergedXmlReport
       - codecov/upload:
-          file: app/build/merged-report/result.xml
+          file: ~/merged-report/result.xml
       - run:
           name: Run Build
           command: ./gradlew build
