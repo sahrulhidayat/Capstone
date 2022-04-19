@@ -26,29 +26,21 @@ jobs:
             - ~/.android/build-cache
             - ~/.android/cache
       - run:
-          name: Unit Test
-          command: ./gradlew testDebug
-      - run:
-          name: Save test results
-          command: |
-            mkdir -p app/build/test-results/junit/
-            find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} app/build/test-results/junit/ \;
-          when: always
-      - store_test_results:
-          path: app/build/test-results
-      - store_artifacts:
-          path: app/build/test-results/junit
-      - run:
-          name: Lint Test
-          command: ./gradlew lint
+          name: Jacoco Test Report
+          command: ./gradlew jacocoTestReport
+      - codecov/upload:
+          file: app/build/reports/jacoco
       - run:
           name: Run Build
           command: ./gradlew build
       - store_artifacts: 
           path: app/build/reports
           destination: reports
+      - run:
+          name: Lint Test
+          command: ./gradlew lint
+      - store_test_results:
+          path: app/build/test-results
       - store_artifacts:  
           path: app/build/outputs/apk/debug/
           destination: artifact-file
-      - codecov/upload:
-          file: app/build/test-results/junit/*.xml
