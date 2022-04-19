@@ -3,6 +3,8 @@ package com.sahrulhidayat.core.data.source
 import app.cash.turbine.test
 import com.google.common.truth.Truth.assertThat
 import com.sahrulhidayat.core.data.source.local.LocalDataSource
+import com.sahrulhidayat.core.utils.DataFormatter.genresString
+import com.sahrulhidayat.core.utils.DataFormatter.tagsString
 import com.sahrulhidayat.core.utils.SortUtils
 import com.sahrulhidayat.utils.DummyGames.generateDummyGameList
 import com.sahrulhidayat.utils.DummyGames.generateRemoteDummyGameDetails
@@ -68,6 +70,13 @@ class GameRepositoryTest {
             val item = awaitItem()
             assertThat(item.data).isNotNull()
             assertThat(item.data?.id).isEqualTo(gameDetailsResponse.id)
+            assertThat(item.data?.background).isEqualTo(gameDetailsResponse.backgroundImage)
+            assertThat(item.data?.name).isEqualTo(gameDetailsResponse.name)
+            assertThat(item.data?.rating).isEqualTo(gameDetailsResponse.rating)
+            assertThat(item.data?.released).isEqualTo(gameDetailsResponse.released)
+            assertThat(item.data?.genres).isEqualTo(genresString(gameDetailsResponse.genres))
+            assertThat(item.data?.tags).isEqualTo(tagsString(gameDetailsResponse.tags))
+            assertThat(item.data?.description).isEqualTo(gameDetailsResponse.descriptionRaw)
             cancelAndConsumeRemainingEvents()
         }
     }
