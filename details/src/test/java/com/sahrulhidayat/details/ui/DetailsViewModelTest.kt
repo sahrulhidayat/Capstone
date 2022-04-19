@@ -23,7 +23,7 @@ class DetailsViewModelTest {
 
     private val dummyId = 3
     private val game = mock<GameModel> {
-        on { id } doReturn(dummyId)
+        on { id } doReturn (dummyId)
     }
 
     private val dummyFlow = flow {
@@ -31,7 +31,7 @@ class DetailsViewModelTest {
     }
 
     private val gameUseCase = mock<GameUseCase> {
-        on { getGameDetails(dummyId) } doReturn(dummyFlow)
+        on { getGameDetails(dummyId) } doReturn (dummyFlow)
     }
 
     @Before

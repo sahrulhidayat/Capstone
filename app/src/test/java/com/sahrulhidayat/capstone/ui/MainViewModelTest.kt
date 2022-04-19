@@ -24,7 +24,7 @@ class MainViewModelTest {
     }
 
     private val preferenceUseCase = mock<PreferenceUseCase> {
-        on { getThemeSettings() } doReturn(dummyFlow)
+        on { getThemeSettings() } doReturn (dummyFlow)
     }
 
     @Before

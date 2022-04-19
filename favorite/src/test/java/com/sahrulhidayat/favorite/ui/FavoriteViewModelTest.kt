@@ -21,7 +21,7 @@ class FavoriteViewModelTest {
     private lateinit var viewModel: FavoriteViewModel
 
     private val gameList = mock<List<GameModel>> {
-        on { size } doReturn(2)
+        on { size } doReturn (2)
     }
 
     private val dummyFlow = flow {
@@ -29,7 +29,7 @@ class FavoriteViewModelTest {
     }
 
     private val gameUseCase = mock<GameUseCase> {
-        on { getAllFavoriteGames() } doReturn(dummyFlow)
+        on { getAllFavoriteGames() } doReturn (dummyFlow)
     }
 
     @Before

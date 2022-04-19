@@ -24,7 +24,7 @@ class HomeViewModelTest {
     private val sort = SortUtils.NEWEST
 
     private val gameList = mock<List<GameModel>> {
-        on { size } doReturn(2)
+        on { size } doReturn (2)
     }
 
     private val dummyFlow = flow {
@@ -32,7 +32,7 @@ class HomeViewModelTest {
     }
 
     private val gameUseCase = mock<GameUseCase> {
-        on { getGameList(sort) } doReturn(dummyFlow)
+        on { getGameList(sort) } doReturn (dummyFlow)
     }
 
     @Before
