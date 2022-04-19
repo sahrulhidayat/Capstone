@@ -11,7 +11,6 @@ import com.sahrulhidayat.core.utils.DataMapper
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
@@ -38,9 +37,11 @@ class GameRepository(
 
             override suspend fun saveCallResult(data: List<GameResults>) {
                 val gameList = DataMapper.mapGameListResponseToEntities(data)
-                localDataSource.insertGame(gameList)
+                CoroutineScope(ioDispatcher).launch {
+                    localDataSource.insertGame(gameList)
+                }
             }
-        }.asFlow().flowOn(ioDispatcher)
+        }.asFlow()
     }
 
     override fun getGameDetails(id: Int): Flow<Resource<GameModel>> {
@@ -65,13 +66,13 @@ class GameRepository(
                     localDataSource.updateGame(gameDetails)
                 }
             }
-        }.asFlow().flowOn(ioDispatcher)
+        }.asFlow()
     }
 
     override fun getAllFavoriteGames(): Flow<List<GameModel>> {
         return localDataSource.getAllFavoriteGames().map {
             DataMapper.mapEntitiesToDomain(it)
-        }.flowOn(ioDispatcher)
+        }
     }
 
     override fun setFavoriteGame(game: GameModel, state: Boolean) {
