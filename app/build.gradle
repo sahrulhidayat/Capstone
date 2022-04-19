@@ -3,9 +3,18 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs.kotlin'
+    id 'com.dicedmelon.gradle.jacoco-android'
 }
 
 apply from: '../shared_dependencies.gradle'
+
+jacoco {
+    toolVersion = "0.8.4"
+}
+
+tasks.withType(Test) {
+    jacoco.includeNoLocationClasses = true
+}
 
 android {
     compileSdk 31
@@ -43,6 +52,11 @@ android {
         viewBinding true
     }
     dynamicFeatures = [':favorite', ':details', ':settings', ':home']
+
+    productFlavors {
+        free {}
+        paid {}
+    }
 }
 
 dependencies {
