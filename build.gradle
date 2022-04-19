@@ -18,16 +18,20 @@ plugins {
     id 'org.jetbrains.kotlinx.kover' version '0.5.0' apply true
 }
 
+kover {
+    runAllTestsForProjectTask = true
+}
+
 tasks.koverMergedHtmlReport {
     enabled = true
-    htmlReportDir.set(layout.buildDirectory.dir("my-merged-report/html-result"))
+    htmlReportDir.set(layout.buildDirectory.dir("merged-report/html-result"))
 
     includes = ['com.sahrulhidayat.*']
 }
 
 tasks.koverMergedXmlReport {
     enabled = true
-    xmlReportFile.set(layout.buildDirectory.file("my-merged-report/result.xml"))
+    xmlReportFile.set(layout.buildDirectory.file("merged-report/result.xml"))
 
     includes = ['com.sahrulhidayat.*']
 }
