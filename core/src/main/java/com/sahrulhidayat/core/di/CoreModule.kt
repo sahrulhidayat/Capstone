@@ -31,7 +31,7 @@ val databaseModule = module {
     factory { get<GameDatabase>().gameDao() }
 
     single {
-        val passphrase: ByteArray = SQLiteDatabase.getBytes("sahrulhidayat".toCharArray())
+        val passphrase: ByteArray = SQLiteDatabase.getBytes(PASSPHRASE.toCharArray())
         val factory = SupportFactory(passphrase)
 
         Room.databaseBuilder(
