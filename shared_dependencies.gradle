@@ -15,6 +15,9 @@ dependencies {
     testImplementation "org.mockito.kotlin:mockito-kotlin:$mockito_kotlin_version"
     androidTestImplementation "androidx.test.ext:junit:$androidx_junit_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+    androidTestImplementation("com.adevinta.android:barista:$barista_version") {
+        exclude group: 'org.jetbrains.kotlin'
+    }
 
     //jetpack navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
