@@ -44,6 +44,7 @@ android {
         viewBinding true
     }
     dynamicFeatures = [':favorite', ':details', ':settings', ':home']
+    namespace 'com.sahrulhidayat.capstone'
 }
 
 dependencies {
