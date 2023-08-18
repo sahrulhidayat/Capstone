@@ -2,7 +2,9 @@ package com.sahrulhidayat.core.di
 
 import androidx.room.Room
 import com.appmattus.certificatetransparency.certificateTransparencyInterceptor
-import com.sahrulhidayat.core.BuildConfig.*
+import com.sahrulhidayat.core.BuildConfig.BASE_URL
+import com.sahrulhidayat.core.BuildConfig.HOST_NAME
+import com.sahrulhidayat.core.BuildConfig.PASSPHRASE
 import com.sahrulhidayat.core.data.preference.PreferenceDataStore
 import com.sahrulhidayat.core.data.source.GameRepository
 import com.sahrulhidayat.core.data.source.local.LocalDataSource
@@ -18,7 +20,6 @@ import com.sahrulhidayat.core.domain.usecase.PreferenceUseCase
 import com.sahrulhidayat.core.utils.DispatcherProvider
 import net.sqlcipher.database.SQLiteDatabase
 import net.sqlcipher.database.SupportFactory
-import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -51,18 +52,14 @@ val dataStoreModule = module {
 
 val networkModule = module {
     single {
-        val certificatePinner = CertificatePinner.Builder()
-            .add(HOST_NAME, SHA_1)
-            .add(HOST_NAME, SHA_2)
-            .add(HOST_NAME, SHA_3)
-            .build()
-
+        val certificateTransparency = certificateTransparencyInterceptor {
+            +HOST_NAME
+        }
         OkHttpClient.Builder()
-            .addNetworkInterceptor(certificateTransparencyInterceptor())
+            .addNetworkInterceptor(certificateTransparency)
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
             .connectTimeout(120, TimeUnit.SECONDS)
             .readTimeout(120, TimeUnit.SECONDS)
-            .certificatePinner(certificatePinner)
             .build()
     }
 

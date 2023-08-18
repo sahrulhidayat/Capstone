@@ -21,9 +21,6 @@ android {
         buildConfigField "String", "API_KEY", "\"a556622f3cf649e081471ea0fd0fd45d\""
         buildConfigField "String", "PASSPHRASE", "\"sahrulhidayat\""
         buildConfigField "String", "HOST_NAME", "\"api.rawg.io\""
-        buildConfigField "String", "SHA_1", "\"sha256/RI9CUmPUOpUk2vdVMSZDWj+wtoQO5k9MSCSM9w4grmU=\""
-        buildConfigField "String", "SHA_2", "\"sha256/FEzVOUp4dF3gI0ZVPRJhFbSJVXR+uQmMH65xhs1glH4=\""
-        buildConfigField "String", "SHA_3", "\"sha256/Y9mvm0exBk1JoQ57f9Vm28jKo5lFm/woKcVxrYxu80o=\""
     }
 
     buildTypes {
