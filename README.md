@@ -4,7 +4,7 @@
 
 ![ScreenShot](/preview/screenshot_1.png)
 
-Aplikasi ini menggunakan Rawg API sebagai sumber data game dan menampilkannya menjadi list.  
+Aplikasi ini menggunakan [Rawg API](https://api.rawg.io/docs/) sebagai sumber data game dan menampilkannya menjadi list.  
 
 ## Feature
 - Game list
